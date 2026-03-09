@@ -183,14 +183,14 @@
     /* ─── ACCORDION ─── */
     .accordion { display: flex; flex-direction: column; gap: 12px; margin-bottom: 60px; }
     .acc-item {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid var(--white-20);
+      background: rgba(8,20,65,0.72);
+      border: 1px solid rgba(255,255,255,0.25);
       border-radius: var(--radius);
       overflow: hidden;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
       transition: background .3s;
     }
-    .acc-item:hover { background: rgba(255,255,255,0.17); }
+    .acc-item:hover { background: rgba(8,20,65,0.85); }
     .acc-header {
       display: flex;
       align-items: center;
@@ -232,9 +232,10 @@
     .acc-item.open .acc-body { max-height: 1200px; }
     .acc-content {
       padding: 0 24px 24px 82px;
-      color: var(--white-80);
+      color: #ffffff;
       font-size: 15px;
       line-height: 1.75;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
     }
     .acc-content ul { padding-left: 20px; margin-top: 8px; }
     .acc-content li { margin-bottom: 6px; }
@@ -383,12 +384,12 @@
       margin-bottom: 60px;
     }
     .card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid var(--white-20);
+      background: rgba(8,20,65,0.72);
+      border: 1px solid rgba(255,255,255,0.25);
       border-radius: var(--radius);
       padding: 26px 22px;
       cursor: pointer;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
       transition: transform .25s, background .25s, box-shadow .25s;
       display: flex;
       flex-direction: column;
@@ -396,7 +397,7 @@
     }
     .card:hover {
       transform: translateY(-4px);
-      background: rgba(255,255,255,0.2);
+      background: rgba(8,20,65,0.88);
       box-shadow: var(--shadow);
     }
     .card-emoji { font-size: 28px; }
@@ -405,7 +406,7 @@
       font-weight: 700;
       font-size: 16px;
     }
-    .card p { font-size: 13px; color: var(--white-80); flex: 1; }
+    .card p { font-size: 13px; color: #ffffff; flex: 1; }
     .card-arrow {
       display: flex;
       align-items: center;
