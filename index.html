@@ -471,6 +471,25 @@
     .about-text .title { color: var(--orange-light); font-weight: 600; font-size: 15px; margin-bottom: 16px; }
     .about-text p { color: var(--white-80); font-size: 15px; line-height: 1.75; margin-bottom: 12px; }
     .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .about-socials { display: flex; gap: 10px; margin-top: 16px; }
+    .about-soc-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .about-soc-btn:hover { transform: translateY(-2px); box-shadow: 0 7px 20px rgba(0,0,0,0.4); }
+    .about-soc-btn.tg { background: linear-gradient(135deg, #1a96d4, #2AABEE); }
+    .about-soc-btn.vk { background: linear-gradient(135deg, #2d5f9e, #4680C2); }
+    .about-soc-btn svg { width: 16px; height: 16px; fill: #fff; flex-shrink: 0; }
     .tag {
       background: var(--white-20);
       border-radius: 20px;
@@ -940,6 +959,16 @@
         <span class="tag">Онлайн-маркетинг</span>
         <span class="tag">ИИ-инструменты</span>
         <span class="tag">Наставничество</span>
+      </div>
+      <div class="about-socials">
+        <a href="https://t.me/lubov_moska" target="_blank" class="about-soc-btn tg">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+          Telegram
+        </a>
+        <a href="https://vk.ru/lubov_moska" target="_blank" class="about-soc-btn vk">
+          <svg viewBox="0 0 24 24"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.587-1.496c.6-.19 1.37 1.26 2.185 1.815.617.422 1.086.33 1.086.33l2.182-.03s1.141-.071.6-.968c-.044-.073-.314-.661-1.618-1.87-1.365-1.265-1.182-1.06.462-3.248.999-1.33 1.399-2.142 1.273-2.489-.12-.331-.855-.244-.855-.244l-2.455.015s-.182-.025-.317.056c-.132.079-.217.264-.217.264s-.387 1.03-.903 1.905c-1.088 1.847-1.523 1.946-1.7 1.832-.414-.267-.31-1.073-.31-1.647 0-1.79.272-2.535-.529-2.727-.265-.064-.46-.107-1.137-.114-.869-.009-1.604.002-2.02.207-.277.136-.491.44-.361.457.161.021.526.098.72.362.25.341.241 1.107.241 1.107s.144 2.11-.335 2.372c-.329.179-.78-.187-1.748-1.86-.497-.858-.872-1.807-.872-1.807s-.072-.178-.202-.274a.986.986 0 0 0-.38-.145l-2.33.015s-.35.01-.479.162c-.114.135-.009.414-.009.414s1.826 4.271 3.893 6.424c1.896 1.977 4.047 1.847 4.047 1.847h.975z"/></svg>
+          ВКонтакте
+        </a>
       </div>
     </div>
   </div>
