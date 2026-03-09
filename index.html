@@ -131,11 +131,20 @@
     .hero h1 span { color: var(--orange-light); }
     .hero-sub {
       font-size: 18px;
-      color: var(--white-80);
-      max-width: 620px;
+      color: #ffffff;
+      max-width: 660px;
       margin: 0 auto 40px;
-      font-weight: 300;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      line-height: 1.6;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-left: 4px solid var(--orange);
+      border-radius: 0 14px 14px 0;
+      padding: 16px 24px;
+      text-align: left;
     }
+    .hero-sub .accent { color: var(--orange-light); }
     .cta-btn {
       display: inline-flex;
       align-items: center;
@@ -658,7 +667,7 @@
   <div class="hero-tag">Гайд Любы Москалёвой</div>
   <h1>+<span>500К</span><br>в сетевом<br>за 2 года</h1>
   <p class="hero-sub">
-    Переход из «ручного режима» в МЛМ в системный масштаб через нейроворонки и входящие заявки
+    Переход из <span class="accent">«ручного режима»</span> в МЛМ<br>в системный масштаб через <span class="accent">нейроворонки</span> и <span class="accent">входящие заявки</span>
   </p>
   <a href="https://t.me/lubamoskaleva" target="_blank" class="cta-btn">
     <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
