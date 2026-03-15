@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Елена Новикова — Второй источник дохода</title>
+<style>
+  :root{
+    --rose-bg:#fde8e3;
+    --rose-mid:#f5c5b8;
+    --rose-card:#fdf0ec;
+    --coral:#d9614a;
+    --coral-dark:#b84a35;
+    --coral-light:#f0a090;
+    --cream:#fdfaf8;
+    --text:#3d2523;
+    --text-soft:#7a5a52;
+    --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--rose-bg);font-family:'Georgia',serif;color:var(--text);line-height:1.7}
+
+  /* ─── ШАПКА ─────────────────────────────────── */
+  header{
+    background:var(--white);
+    border-bottom:3px solid var(--rose-mid);
+    padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:100;
+    box-shadow:0 2px 12px rgba(217,97,74,.12);
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:bold;color:var(--coral-dark);letter-spacing:.3px;text-decoration:none}
+  .logo span{color:var(--text-soft);font-weight:normal;font-size:13px;display:block}
+  .logo-avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--coral);flex-shrink:0}
+  .socials{display:flex;gap:10px}
+  .soc-btn{
+    display:flex;align-items:center;gap:6px;
+    padding:7px 14px;border-radius:24px;font-size:13px;font-family:Arial,sans-serif;
+    font-weight:600;text-decoration:none;transition:all .25s;border:2px solid transparent;
+  }
+  .soc-tg{background:#229ED9;color:#fff}
+  .soc-tg:hover{background:#1a85bb;transform:translateY(-2px);box-shadow:0 4px 14px rgba(34,158,217,.35)}
+  .soc-vk{background:#0077FF;color:#fff}
+  .soc-vk:hover{background:#005fcc;transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,119,255,.35)}
+  .soc-icon{display:flex;align-items:center;flex-shrink:0}
+
+  /* ─── HERO ───────────────────────────────────── */
+  .hero{
+    background:linear-gradient(135deg, #fde8e3 0%, #f5c5b8 50%, #f0b0a0 100%);
+    padding:60px 24px 50px;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;top:-60px;right:-60px;
+    width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle, rgba(217,97,74,.18) 0%, transparent 70%);
+  }
+  .hero::after{
+    content:'';position:absolute;bottom:-40px;left:-40px;
+    width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(circle, rgba(217,97,74,.12) 0%, transparent 70%);
+  }
+  .hero-tag{
+    display:inline-block;background:var(--coral);color:#fff;
+    font-size:12px;font-family:Arial,sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+    padding:5px 16px;border-radius:20px;margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(22px,5vw,36px);font-weight:bold;color:var(--text);
+    line-height:1.3;max-width:680px;margin:0 auto 16px;
+  }
+  .hero h1 em{color:var(--coral-dark);font-style:normal}
+  .hero-sub{
+    font-size:16px;color:var(--text-soft);max-width:520px;
+    margin:0 auto 28px;font-family:Arial,sans-serif;
+  }
+  .hero-sub b{color:var(--coral-dark)}
+  .hero-meta{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,.7);backdrop-filter:blur(6px);
+    border-radius:30px;padding:8px 20px;
+    font-size:13px;font-family:Arial,sans-serif;color:var(--text-soft);
+  }
+  .hero-meta span{color:var(--coral);font-size:16px}
+
+  /* ─── КОНТЕЙНЕР ─────────────────────────────── */
+  .wrap{max-width:720px;margin:0 auto;padding:0 16px}
+
+  /* ─── СЕКЦИЯ ─────────────────────────────────── */
+  section{padding:36px 0 0}
+
+  /* ─── ВВОДНЫЙ БЛОК ──────────────────────────── */
+  .intro-card{
+    background:var(--white);border-radius:18px;padding:28px 32px;
+    box-shadow:0 4px 24px rgba(217,97,74,.10);
+    border-left:5px solid var(--coral);margin-bottom:6px;
+  }
+  .intro-card h2{font-size:20px;color:var(--coral-dark);margin-bottom:14px}
+  .intro-card p{font-family:Arial,sans-serif;font-size:14.5px;color:var(--text-soft);margin-bottom:10px}
+  .check-list{list-style:none;padding:0}
+  .check-list li{
+    font-family:Arial,sans-serif;font-size:14px;color:var(--text);
+    padding:6px 0 6px 30px;position:relative;border-bottom:1px dashed var(--rose-mid);
+  }
+  .check-list li:last-child{border:none}
+  .check-list li::before{content:'✔';position:absolute;left:0;color:var(--coral);font-weight:bold}
+
+  /* ─── АККОРДЕОН ─────────────────────────────── */
+  .accordion{margin-bottom:10px}
+  .acc-btn{
+    width:100%;background:var(--white);border:none;border-radius:14px;
+    padding:18px 22px;display:flex;align-items:center;justify-content:space-between;
+    cursor:pointer;text-align:left;
+    box-shadow:0 2px 12px rgba(217,97,74,.09);
+    transition:all .25s;
+  }
+  .acc-btn:hover{background:var(--rose-card);box-shadow:0 4px 18px rgba(217,97,74,.15)}
+  .acc-btn.open{
+    background:var(--coral);border-radius:14px 14px 0 0;
+    box-shadow:0 4px 18px rgba(217,97,74,.25);
+  }
+  .acc-btn.open .acc-title{color:#fff}
+  .acc-btn.open .acc-icon{color:#fff;transform:rotate(180deg)}
+  .acc-left{display:flex;align-items:center;gap:14px}
+  .acc-emoji{font-size:22px;min-width:30px}
+  .acc-title{font-size:16px;font-weight:bold;color:var(--text);transition:color .2s}
+  .acc-icon{font-size:20px;color:var(--coral);transition:transform .3s,color .2s;font-style:normal}
+  .acc-body{
+    background:var(--white);border-radius:0 0 14px 14px;
+    max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;
+    box-shadow:0 4px 12px rgba(217,97,74,.08);
+  }
+  .acc-body.open{max-height:1200px;padding:22px 26px 24px}
+  .acc-body h3{font-size:15px;color:var(--coral-dark);margin:14px 0 6px}
+  .acc-body h3:first-child{margin-top:0}
+  .acc-body p{font-family:Arial,sans-serif;font-size:14px;color:var(--text-soft);margin-bottom:10px}
+  .acc-body ul,.acc-body ol{padding-left:20px;margin-bottom:10px}
+  .acc-body li{font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin-bottom:5px}
+  .acc-body b{color:var(--coral-dark)}
+  .ins-box{
+    background:var(--rose-card);border-radius:10px;padding:14px 18px;margin-bottom:10px;
+    border-left:4px solid var(--coral-light);
+  }
+  .ins-box p{margin:0;font-size:13.5px;color:var(--text)}
+  .minus-list{list-style:none;padding:0}
+  .minus-list li{padding:4px 0 4px 24px;position:relative;font-family:Arial,sans-serif;font-size:14px;color:var(--text-soft)}
+  .minus-list li::before{content:'—';position:absolute;left:0;color:var(--coral-light)}
+  .no-list{list-style:none;padding:0}
+  .no-list li{padding:4px 0 4px 26px;position:relative;font-family:Arial,sans-serif;font-size:14px}
+  .no-list li::before{content:'❌';position:absolute;left:0;font-size:13px}
+
+  /* ─── ТЕСТ ───────────────────────────────────── */
+  .test-wrap{background:var(--white);border-radius:18px;padding:26px 28px;box-shadow:0 4px 20px rgba(217,97,74,.1)}
+  .test-title{font-size:20px;color:var(--coral-dark);margin-bottom:6px}
+  .test-sub{font-family:Arial,sans-serif;font-size:13px;color:var(--text-soft);margin-bottom:20px}
+  .q-block{margin-bottom:18px;border-bottom:1px solid var(--rose-mid);padding-bottom:16px}
+  .q-block:last-of-type{border:none;padding-bottom:0}
+  .q-text{font-size:14.5px;font-weight:bold;color:var(--text);margin-bottom:10px}
+  .q-options{display:flex;flex-direction:column;gap:7px}
+  .q-opt{
+    display:flex;align-items:center;gap:10px;cursor:pointer;
+    padding:8px 14px;border-radius:9px;font-family:Arial,sans-serif;font-size:13.5px;
+    border:2px solid var(--rose-mid);background:var(--cream);transition:all .2s;
+  }
+  .q-opt:hover{border-color:var(--coral-light);background:var(--rose-card)}
+  .q-opt input{accent-color:var(--coral);width:16px;height:16px;cursor:pointer}
+  .q-opt.selected{border-color:var(--coral);background:var(--rose-card);font-weight:600}
+  .test-btn{
+    display:block;width:100%;margin-top:20px;
+    background:var(--coral);color:#fff;border:none;border-radius:30px;
+    padding:14px;font-size:15px;font-weight:bold;font-family:Arial,sans-serif;
+    cursor:pointer;transition:all .25s;letter-spacing:.3px;
+  }
+  .test-btn:hover{background:var(--coral-dark);transform:translateY(-2px);box-shadow:0 6px 18px rgba(217,97,74,.4)}
+
+  /* Результат теста — выдвигается */
+  .test-result{
+    max-height:0;overflow:hidden;transition:max-height .5s ease,margin .3s;
+    border-radius:0 0 14px 14px;
+  }
+  .test-result.show{max-height:300px;margin-top:14px}
+  .res-inner{
+    background:linear-gradient(135deg,#fde8e3,#f5c5b8);
+    border-radius:12px;padding:20px 24px;
+    border-left:5px solid var(--coral);
+  }
+  .res-inner h3{color:var(--coral-dark);margin-bottom:8px;font-size:17px}
+  .res-inner p{font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin-bottom:6px}
+
+  /* ─── СХЕМА ШАГОВ ────────────────────────────── */
+  .scheme{display:flex;flex-direction:column;gap:0}
+  .scheme-step{
+    display:flex;gap:16px;align-items:flex-start;
+    background:var(--white);border-radius:14px;padding:18px 20px;
+    box-shadow:0 2px 12px rgba(217,97,74,.08);
+    opacity:0;transform:translateX(-30px);transition:all .5s ease;
+    position:relative;
+  }
+  .scheme-step.visible{opacity:1;transform:translateX(0)}
+  .scheme-step:not(:last-child)::after{
+    content:'↓';position:absolute;bottom:-22px;left:34px;
+    font-size:20px;color:var(--coral);line-height:1;
+  }
+  .step-num{
+    min-width:40px;height:40px;border-radius:50%;
+    background:var(--coral);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:17px;font-weight:bold;font-family:Arial,sans-serif;
+    flex-shrink:0;
+  }
+  .step-body h3{font-size:15px;color:var(--coral-dark);margin-bottom:5px}
+  .step-body p{font-family:Arial,sans-serif;font-size:13.5px;color:var(--text-soft)}
+  .step-sep{height:28px}
+
+  /* ─── ВОЗРАЖЕНИЯ (СЛАЙД) ─────────────────────── */
+  .objection{
+    background:var(--white);border-radius:14px;padding:0;
+    box-shadow:0 2px 12px rgba(217,97,74,.08);
+    margin-bottom:8px;overflow:hidden;
+  }
+  .obj-q{
+    padding:16px 20px;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:15px;font-weight:bold;color:var(--text);
+    transition:background .2s;
+    font-family:Arial,sans-serif;
+  }
+  .obj-q:hover{background:var(--rose-card)}
+  .obj-q .obj-icon{font-size:18px;color:var(--coral);transition:transform .3s;font-style:normal}
+  .obj-q.open{background:var(--rose-card)}
+  .obj-q.open .obj-icon{transform:rotate(45deg)}
+  .obj-a{
+    max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;
+    font-family:Arial,sans-serif;font-size:14px;color:var(--text-soft);
+    border-top:0px solid var(--rose-mid);
+  }
+  .obj-a.open{max-height:200px;padding:14px 20px 18px;border-top-width:1px}
+
+  /* ─── КОМУ ПОДХОДИТ — слайд слева ──────────── */
+  .who-block{
+    background:var(--white);border-radius:18px;padding:24px 26px;
+    box-shadow:0 2px 14px rgba(217,97,74,.09);
+    margin-bottom:10px;overflow:hidden;
+  }
+  .who-header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  .who-emoji{font-size:24px}
+  .who-title{font-size:17px;font-weight:bold;color:var(--coral-dark)}
+  .who-sub{font-family:Arial,sans-serif;font-size:13.5px;color:var(--text-soft);margin-bottom:14px}
+  .who-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+  .who-item{
+    display:flex;align-items:center;gap:12px;
+    background:linear-gradient(90deg,var(--rose-card),#fff);
+    border-left:4px solid var(--coral);border-radius:0 10px 10px 0;
+    padding:10px 16px;
+    font-family:Arial,sans-serif;font-size:14px;color:var(--text);font-weight:500;
+    opacity:0;transform:translateX(-60px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .who-item::before{
+    content:'✔';color:var(--coral);font-weight:bold;font-size:15px;flex-shrink:0;
+  }
+  .who-item.slide-in{opacity:1;transform:translateX(0)}
+
+  /* ─── ПРИГЛАШЕНИЕ-ВСТАВКА ───────────────────── */
+  .invite-block{
+    display:flex;gap:16px;align-items:flex-start;
+    background:linear-gradient(135deg,#fde8e3,#fdf0ec);
+    border:2px dashed var(--coral-light);border-radius:16px;
+    padding:20px 22px;margin-bottom:10px;
+  }
+  .invite-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+  .invite-text p{font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin-bottom:6px}
+  .invite-text p:last-child{margin-bottom:0;color:var(--text-soft);font-style:italic}
+  .invite-text b{color:var(--coral-dark)}
+
+  /* ─── ИСТОРИЯ ────────────────────────────────── */
+  .story-card{
+    background:linear-gradient(135deg,#fff,var(--rose-card));
+    border-radius:18px;padding:28px 30px;
+    box-shadow:0 4px 20px rgba(217,97,74,.12);
+    border:1px solid var(--rose-mid);
+  }
+  .story-top{display:flex;gap:22px;align-items:flex-start;margin-bottom:18px}
+  .story-photo{
+    flex-shrink:0;
+    width:120px;height:120px;border-radius:50%;
+    object-fit:cover;object-position:center top;
+    border:4px solid var(--coral);
+    box-shadow:0 4px 16px rgba(217,97,74,.3);
+  }
+  .story-text-col{flex:1}
+  .story-card h2{font-size:21px;color:var(--coral-dark);margin-bottom:10px}
+  .story-card p{font-family:Arial,sans-serif;font-size:14.5px;color:var(--text-soft);margin-bottom:10px}
+  @media(max-width:480px){
+    .story-top{flex-direction:column;align-items:center;text-align:center}
+    .story-photo{width:100px;height:100px}
+  }
+  .story-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+  .stat-box{
+    background:var(--white);border-radius:12px;padding:14px 16px;
+    border-left:4px solid var(--coral);text-align:left;
+  }
+  .stat-num{font-size:20px;font-weight:bold;color:var(--coral-dark);line-height:1.1}
+  .stat-label{font-family:Arial,sans-serif;font-size:12px;color:var(--text-soft);margin-top:3px}
+
+  /* ─── CTA ────────────────────────────────────── */
+  .cta-section{
+    background:linear-gradient(135deg,var(--coral) 0%,var(--coral-dark) 100%);
+    border-radius:20px;padding:36px 28px;text-align:center;margin:32px 0 0;
+    box-shadow:0 8px 32px rgba(217,97,74,.35);
+  }
+  .cta-section h2{font-size:22px;color:#fff;margin-bottom:12px;line-height:1.35}
+  .cta-section p{font-family:Arial,sans-serif;font-size:14.5px;color:rgba(255,255,255,.88);margin-bottom:22px}
+  .cta-word{
+    display:inline-block;background:rgba(255,255,255,.2);
+    border:2px solid rgba(255,255,255,.5);border-radius:12px;
+    padding:10px 28px;font-size:22px;font-weight:bold;color:#fff;
+    letter-spacing:2px;margin-bottom:22px;
+  }
+  .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .cta-btn{
+    display:flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:30px;font-size:15px;font-weight:700;
+    font-family:Arial,sans-serif;text-decoration:none;transition:all .25s;
+  }
+  .cta-tg{background:#fff;color:var(--coral-dark)}
+  .cta-tg:hover{background:var(--rose-bg);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.18)}
+  .cta-vk{background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.6)}
+  .cta-vk:hover{background:rgba(255,255,255,.3);transform:translateY(-2px)}
+
+  /* ─── ПОДВАЛ ─────────────────────────────────── */
+  footer{
+    text-align:center;padding:24px 16px 32px;margin-top:20px;
+    font-family:Arial,sans-serif;font-size:12.5px;color:var(--text-soft);
+  }
+  footer a{color:var(--coral);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .footer-socials{display:flex;gap:10px;justify-content:center;margin-bottom:10px}
+
+  /* ─── RESPONSIVE ─────────────────────────────── */
+  @media(max-width:600px){
+    header{padding:10px 14px}
+    .logo{font-size:14px}
+    .soc-btn{padding:6px 10px;font-size:12px}
+    .hero{padding:40px 16px 36px}
+    .wrap{padding:0 12px}
+    .intro-card,.test-wrap,.story-card{padding:20px 18px}
+    .story-stats{grid-template-columns:1fr}
+    .acc-body.open{padding:16px 18px 20px}
+    .cta-section{padding:28px 18px}
+    .cta-btns{flex-direction:column;align-items:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ ШАПКА ═══════════════════ -->
+<header>
+  <div class="logo">
+    <img class="logo-avatar" src="Елена Новикова.jpg" alt="Елена Новикова">
+    <div>
+      Елена Новикова
+      <span>Партнёрская модель бизнеса</span>
+    </div>
+  </div>
+  <div class="socials">
+    <a class="soc-btn soc-tg" href="https://t.me/ElenaNovikova_f" target="_blank">
+      <span class="soc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span> Telegram
+    </a>
+    <a class="soc-btn soc-vk" href="https://vk.com/novikova_elena_raf" target="_blank">
+      <span class="soc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.252.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg></span> ВКонтакте
+    </a>
+  </div>
+</header>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<div class="hero">
+  <div class="hero-tag">Мини-гайд для предпринимательниц</div>
+  <h1>Если ваш бизнес остановится на месяц —<br><em>что станет с доходом?</em></h1>
+  <p class="hero-sub">Как создать <b>второй источник дохода</b> без склада, закупок и нового штата</p>
+  <div class="hero-meta">
+    <span>📖</span> Несколько минут чтения
+  </div>
+</div>
+
+<!-- ═══════════════════ КОНТЕНТ ═══════════════════ -->
+<div class="wrap">
+
+  <!-- ВВЕДЕНИЕ -->
+  <section>
+    <div class="intro-card">
+      <h2>Всего несколько минут — и вот что вы узнаете:</h2>
+      <p>Мои дорогие, этот гайд написан коротко и по делу — чтобы вы спокойно посмотрели на одну интересную модель дохода, о которой сегодня всё чаще задумываются предприниматели.</p>
+      <ul class="check-list">
+        <li>Почему доход большинства бизнесов зависит от владельца</li>
+        <li>В какой момент предприниматели начинают искать <b>вторую модель дохода</b></li>
+        <li>Какую модель добавляют сегодня — без склада, закупок и расширения</li>
+        <li>Как работает <b>простая схема масштабирования дохода</b></li>
+        <li>Кому такая модель действительно может подойти</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- АККОРДЕОН БЛОКИ -->
+  <section>
+
+    <!-- ТЕСТ -->
+    <div class="accordion" id="acc-test">
+      <button class="acc-btn" onclick="toggleAcc('test')">
+        <div class="acc-left">
+          <span class="acc-emoji">📋</span>
+          <span class="acc-title">Экспресс-тест для предпринимателя</span>
+        </div>
+        <i class="acc-icon">▾</i>
+      </button>
+      <div class="acc-body" id="body-test">
+        <div class="test-wrap">
+          <div class="test-title">Ответьте честно — только для себя</div>
+          <div class="test-sub">Займёт не больше 30 секунд</div>
+
+          <div class="q-block">
+            <div class="q-text">1. Если вы на месяц перестанете работать, что произойдёт с доходом?</div>
+            <div class="q-options" data-q="1">
+              <label class="q-opt"><input type="radio" name="q1" value="1"> Он практически остановится</label>
+              <label class="q-opt"><input type="radio" name="q1" value="2"> Сильно снизится</label>
+              <label class="q-opt"><input type="radio" name="q1" value="3"> Почти не изменится</label>
+            </div>
+          </div>
+
+          <div class="q-block">
+            <div class="q-text">2. Сколько времени в день требует ваш бизнес?</div>
+            <div class="q-options">
+              <label class="q-opt"><input type="radio" name="q2" value="1"> 8–10 часов</label>
+              <label class="q-opt"><input type="radio" name="q2" value="2"> 5–7 часов</label>
+              <label class="q-opt"><input type="radio" name="q2" value="3"> 2–4 часа</label>
+            </div>
+          </div>
+
+          <div class="q-block">
+            <div class="q-text">3. Можно ли масштабировать ваш доход без увеличения расходов?</div>
+            <div class="q-options">
+              <label class="q-opt"><input type="radio" name="q3" value="1"> Нет</label>
+              <label class="q-opt"><input type="radio" name="q3" value="2"> Частично</label>
+              <label class="q-opt"><input type="radio" name="q3" value="3"> Да</label>
+            </div>
+          </div>
+
+          <div class="q-block">
+            <div class="q-text">4. Есть ли у вас второй источник дохода?</div>
+            <div class="q-options">
+              <label class="q-opt"><input type="radio" name="q4" value="1"> Нет</label>
+              <label class="q-opt"><input type="radio" name="q4" value="2"> Есть небольшой</label>
+              <label class="q-opt"><input type="radio" name="q4" value="3"> Да, полноценный</label>
+            </div>
+          </div>
+
+          <div class="q-block">
+            <div class="q-text">5. Если захотите увеличить доход вдвое — что придётся сделать?</div>
+            <div class="q-options">
+              <label class="q-opt"><input type="radio" name="q5" value="1"> Работать больше</label>
+              <label class="q-opt"><input type="radio" name="q5" value="2"> Вложить больше денег</label>
+              <label class="q-opt"><input type="radio" name="q5" value="3"> Расширить бизнес</label>
+            </div>
+          </div>
+
+          <button class="test-btn" onclick="showResult()">Узнать результат →</button>
+
+          <div class="test-result" id="test-result">
+            <div class="res-inner">
+              <h3 id="res-title">Ваш результат</h3>
+              <p id="res-text"></p>
+              <p id="res-cta"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ИНСАЙТ -->
+    <div class="accordion">
+      <button class="acc-btn" onclick="toggleAcc('insight')">
+        <div class="acc-left">
+          <span class="acc-emoji">💡</span>
+          <span class="acc-title">Инсайт, который меняет взгляд на бизнес</span>
+        </div>
+        <i class="acc-icon">▾</i>
+      </button>
+      <div class="acc-body" id="body-insight">
+        <p>Большинство предпринимателей пытаются зарабатывать больше <b>внутри той же модели бизнеса</b>. Они:</p>
+        <ul class="minus-list">
+          <li>расширяют ассортимент</li>
+          <li>нанимают сотрудников</li>
+          <li>увеличивают вложения</li>
+          <li>работают больше часов</li>
+        </ul>
+        <p>Но иногда рост появляется <b>не там.</b></p>
+        <div class="ins-box"><p>Иногда решение — не усиливать старую систему, а <b>добавить новую модель дохода.</b></p></div>
+
+        <h3>3 предпринимательских инсайта</h3>
+        <div class="ins-box">
+          <p><b>Инсайт №1.</b> Доход бизнеса часто ограничен временем владельца. Пока вы работаете — доход есть. Остановились — поток уменьшается.</p>
+        </div>
+        <div class="ins-box">
+          <p><b>Инсайт №2.</b> Рост требует новых вложений: помещение, штат, закупки, больше ответственности.</p>
+        </div>
+        <div class="ins-box">
+          <p><b>Инсайт №3.</b> Иногда рост появляется не внутри старой модели — а <b>рядом с ней.</b></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- СХЕМА -->
+    <div class="accordion">
+      <button class="acc-btn" onclick="toggleAcc('scheme'); initScheme()">
+        <div class="acc-left">
+          <span class="acc-emoji">📊</span>
+          <span class="acc-title">Простая схема второй модели дохода</span>
+        </div>
+        <i class="acc-icon">▾</i>
+      </button>
+      <div class="acc-body" id="body-scheme">
+        <p style="margin-bottom:18px">Чтобы было легче понять саму идею, покажу очень упрощённую схему:</p>
+        <div class="scheme" id="scheme-steps">
+
+          <div class="scheme-step" data-delay="0">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h3>Вы — с предпринимательским опытом</h3>
+              <p>Вы умеете работать с людьми, принимать решения и строить процессы. Это огромный плюс.</p>
+            </div>
+          </div>
+          <div class="step-sep"></div>
+
+          <div class="scheme-step" data-delay="150">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h3>Партнёрская модель бизнеса</h3>
+              <p>Вы подключаетесь к готовой системе. Там уже есть продукт, обучение, маркетинг, инструменты. <b>Не нужно</b>:</p>
+              <ul class="no-list">
+                <li>создавать продукт</li>
+                <li>арендовать помещение</li>
+                <li>закупать товар</li>
+                <li>нанимать сотрудников</li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-sep"></div>
+
+          <div class="scheme-step" data-delay="300">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h3>Команда</h3>
+              <p>Со временем рядом с вами появляется команда партнёров. Начинает работать <b>эффект масштабирования.</b></p>
+            </div>
+          </div>
+          <div class="step-sep"></div>
+
+          <div class="scheme-step" data-delay="450">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h3>Система дохода</h3>
+              <p>Доход формируется из двух источников: ✔ ваш результат + ✔ результат команды. Именно здесь появляется возможность <b>масштабирования.</b></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ВОЗРАЖЕНИЯ -->
+    <div class="accordion">
+      <button class="acc-btn" onclick="toggleAcc('obj')">
+        <div class="acc-left">
+          <span class="acc-emoji">🤔</span>
+          <span class="acc-title">Почему многие сначала не верят</span>
+        </div>
+        <i class="acc-icon">▾</i>
+      </button>
+      <div class="acc-body" id="body-obj">
+        <p style="margin-bottom:14px">Чаще всего я слышу три мысли:</p>
+
+        <div class="objection">
+          <div class="obj-q" onclick="toggleObj(this)">
+            «У меня нет времени»
+            <i class="obj-icon">+</i>
+          </div>
+          <div class="obj-a">
+            Партнёрская модель создана именно для занятых людей. Не нужно бросать бизнес — это работа <b>параллельно</b>, с тем объёмом времени, который у вас есть.
+          </div>
+        </div>
+
+        <div class="objection">
+          <div class="obj-q" onclick="toggleObj(this)">
+            «Я не понимаю, как это работает»
+            <i class="obj-icon">+</i>
+          </div>
+          <div class="obj-a">
+            Именно поэтому я провожу <b>короткие разборы</b> — чтобы показать систему на пальцах. Когда начинаешь видеть схему, всё становится намного понятнее.
+          </div>
+        </div>
+
+        <div class="objection">
+          <div class="obj-q" onclick="toggleObj(this)">
+            «Это несерьёзный бизнес»
+            <i class="obj-icon">+</i>
+          </div>
+          <div class="obj-a">
+            Раньше эту модель часто показывали неправильно. Но факты говорят сами за себя: <b>более 10 000 человек в структуре</b>, товарооборот <b>более 12 млн рублей в месяц</b>.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ПРИГЛАШЕНИЕ НА РАЗБОР -->
+    <div class="invite-block">
+      <div class="invite-icon">💬</div>
+      <div class="invite-text">
+        <p>Я приглашаю вас на <b>индивидуальный разбор вашей ситуации</b> — это короткий личный разговор, где мы вместе посмотрим на ваш бизнес и на то, как рядом с ним может появиться вторая модель дохода.</p>
+        <p>Без давления и навязывания — просто честный разговор о возможностях.</p>
+      </div>
+    </div>
+
+    <!-- КОМУ ПОДХОДИТ — слайд слева -->
+    <div class="who-block" id="who-block">
+      <div class="who-header">
+        <span class="who-emoji">🎯</span>
+        <h3 class="who-title">Кому особенно полезен этот разбор</h3>
+      </div>
+      <p class="who-sub">Этот разговор будет особенно полезен предпринимательницам, которые:</p>
+      <ul class="who-list">
+        <li class="who-item" data-delay="0">Уже имеют свой бизнес</li>
+        <li class="who-item" data-delay="120">Чувствуют, что доход сильно зависит от их времени</li>
+        <li class="who-item" data-delay="240">Хотят больше финансовой устойчивости</li>
+        <li class="who-item" data-delay="360">Готовы рассматривать новые модели бизнеса</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ИСТОРИЯ -->
+  <section style="padding-bottom:8px">
+    <div class="story-card">
+      <div class="story-top">
+        <img class="story-photo" src="Елена Новикова.jpg" alt="Елена Новикова">
+        <div class="story-text-col">
+          <h2>Немного моей истории</h2>
+          <p>Мои дорогие, я прекрасно понимаю предпринимателей — потому что сама прошла этот путь.</p>
+        </div>
+      </div>
+      <p>Я начинала как юрисконсульт, потом открыла собственную <b>имидж-студию</b>. Я прекрасно знаю, что такое аренда, сотрудники, ответственность и работа без выходных.</p>
+      <p>Но в какой-то момент я поняла: <b>масштабировать доход можно по-другому.</b> Так я познакомилась с партнёрской моделью бизнеса.</p>
+      <div class="story-stats">
+        <div class="stat-box">
+          <div class="stat-num">10 000+</div>
+          <div class="stat-label">человек в структуре</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">12 млн ₽</div>
+          <div class="stat-label">товарооборот в месяц</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">🌍</div>
+          <div class="stat-label">команда по всей России и СНГ</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">✈️</div>
+          <div class="stat-label">путешествия и пассивный доход</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="cta-section">
+      <h2>Предприниматели принимают решения после того, как видят систему</h2>
+      <p>Иногда достаточно одного разговора, чтобы понять: как может выглядеть вторая модель дохода именно в вашей ситуации. Напишите мне:</p>
+      <div class="cta-word">РАЗБОР</div>
+      <p>На созвоне я покажу простую схему — и вы спокойно решите, подходит ли вам эта модель.</p>
+      <div class="cta-btns">
+        <a class="cta-btn cta-tg" href="https://t.me/ElenaNovikova_f" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Написать в Telegram
+        </a>
+        <a class="cta-btn cta-vk" href="https://vk.com/novikova_elena_raf" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.252.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
+          ВКонтакте
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<!-- ═══════════════════ ПОДВАЛ ═══════════════════ -->
+<footer>
+  <div class="footer-socials">
+    <a class="soc-btn soc-tg" href="https://t.me/ElenaNovikova_f" target="_blank">
+      <span class="soc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span> Telegram
+    </a>
+    <a class="soc-btn soc-vk" href="https://vk.com/novikova_elena_raf" target="_blank">
+      <span class="soc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.252.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg></span> ВКонтакте
+    </a>
+  </div>
+  <p>© 2026 Елена Новикова &nbsp;|&nbsp;
+    <a href="https://t.me/ElenaNovikova_f">@ElenaNovikova_f</a>
+  </p>
+</footer>
+
+<script>
+// ─── АККОРДЕОН ───────────────────────────────────
+function toggleAcc(id){
+  const btn = document.querySelector(`#acc-${id} .acc-btn`) ||
+              document.querySelectorAll('.acc-btn')[[...document.querySelectorAll('.acc-btn')].indexOf(
+                [...document.querySelectorAll('.acc-btn')].find(b=>b.getAttribute('onclick')&&b.getAttribute('onclick').includes(`'${id}'`))
+              )];
+  const body = document.getElementById('body-'+id);
+  if(!body) return;
+  const isOpen = body.classList.contains('open');
+  // закрываем все
+  document.querySelectorAll('.acc-body').forEach(b=>b.classList.remove('open'));
+  document.querySelectorAll('.acc-btn').forEach(b=>b.classList.remove('open'));
+  if(!isOpen){
+    body.classList.add('open');
+    const allBtns = document.querySelectorAll('.acc-btn');
+    allBtns.forEach(b=>{
+      if(b.getAttribute('onclick') && b.getAttribute('onclick').includes(`'${id}'`))
+        b.classList.add('open');
+    });
+  }
+}
+
+// ─── ВОЗРАЖЕНИЯ ──────────────────────────────────
+function toggleObj(el){
+  const ans = el.nextElementSibling;
+  const isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.obj-a').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('.obj-q').forEach(q=>q.classList.remove('open'));
+  if(!isOpen){
+    ans.classList.add('open');
+    el.classList.add('open');
+  }
+}
+
+// ─── ТЕСТ ─────────────────────────────────────────
+function showResult(){
+  let low = 0;
+  for(let i=1;i<=5;i++){
+    const val = document.querySelector(`input[name="q${i}"]:checked`);
+    if(val && val.value === '1') low++;
+  }
+  const res = document.getElementById('test-result');
+  const title = document.getElementById('res-title');
+  const text = document.getElementById('res-text');
+  const cta = document.getElementById('res-cta');
+
+  if(low >= 3){
+    title.textContent = '💡 Классическая модель — и это нормально';
+    text.textContent = 'Ваш бизнес работает по классической схеме: доход напрямую зависит от вашего времени. Именно поэтому всё больше предпринимателей начинают думать о второй модели дохода.';
+    cta.innerHTML = 'Хотите посмотреть, как это работает? Напишите мне <b>«РАЗБОР»</b> в Telegram.';
+  } else if(low === 2){
+    title.textContent = '🔄 Есть пространство для роста';
+    text.textContent = 'У вас уже есть основы — но доход всё ещё во многом зависит от вашего участия. Партнёрская модель может стать следующим шагом.';
+    cta.innerHTML = 'Давайте разберём вашу ситуацию — напишите <b>«РАЗБОР»</b>.';
+  } else {
+    title.textContent = '✨ Вы уже думаете системно!';
+    text.textContent = 'Отлично — у вас есть понимание масштабирования. Партнёрская модель может добавить ещё один мощный источник дохода к уже работающей системе.';
+    cta.innerHTML = 'Давайте познакомимся — напишите мне в Telegram!';
+  }
+  res.classList.add('show');
+  res.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+// ─── АНИМАЦИЯ СХЕМЫ ──────────────────────────────
+function initScheme(){
+  setTimeout(()=>{
+    document.querySelectorAll('.scheme-step').forEach(step=>{
+      const delay = parseInt(step.dataset.delay)||0;
+      setTimeout(()=>step.classList.add('visible'), delay);
+    });
+  }, 100);
+}
+
+// ─── ПОДСВЕТКА ВЫБРАННОГО ВАРИАНТА ───────────────
+document.querySelectorAll('.q-opt input').forEach(inp=>{
+  inp.addEventListener('change', function(){
+    const group = this.closest('.q-options');
+    group.querySelectorAll('.q-opt').forEach(o=>o.classList.remove('selected'));
+    this.closest('.q-opt').classList.add('selected');
+  });
+});
+
+// ─── INTERSECTION OBSERVER для плавного появления ─
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting) e.target.style.opacity='1'});
+},{threshold:0.15});
+document.querySelectorAll('.accordion,.story-card,.cta-section').forEach(el=>{
+  el.style.transition='opacity .5s ease';
+  el.style.opacity='0.05';
+  observer.observe(el);
+});
+
+// ─── СЛАЙД ПУНКТОВ "КОМУ ПОДХОДИТ" ──────────────
+const whoObserver = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.who-item').forEach(item=>{
+        const delay = parseInt(item.dataset.delay)||0;
+        setTimeout(()=>item.classList.add('slide-in'), delay);
+      });
+      whoObserver.disconnect();
+    }
+  });
+},{threshold:0.3});
+const whoBlock = document.getElementById('who-block');
+if(whoBlock) whoObserver.observe(whoBlock);
+</script>
+</body>
+</html>
