@@ -241,23 +241,37 @@
   .reason-a.open{max-height:300px;padding:0 20px 18px}
 
   /* ─── ПРИНЦИПЫ ───────────────────────────────── */
-  .principles{display:flex;flex-direction:column;gap:10px}
-  .principle-card{
-    background:var(--white);border-radius:14px;padding:16px 20px;
-    box-shadow:0 2px 10px rgba(217,97,74,.08);
-    display:flex;gap:14px;align-items:flex-start;
-    opacity:0;transform:translateY(20px);
-    transition:opacity .45s ease, transform .45s ease;
+  .principles{display:flex;flex-direction:column;gap:8px}
+  .p-item{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(217,97,74,.08)}
+  .p-header{
+    display:flex;align-items:center;gap:12px;
+    padding:14px 18px;cursor:pointer;transition:background .2s;
   }
-  .principle-card.visible{opacity:1;transform:translateY(0)}
-  .p-num{
-    min-width:36px;height:36px;border-radius:10px;
+  .p-header:hover{background:var(--rose-card)}
+  .p-header.open{background:var(--rose-card)}
+  .p-badge{
+    min-width:30px;height:30px;border-radius:8px;
     background:linear-gradient(135deg,var(--coral),var(--coral-dark));color:#fff;
     display:flex;align-items:center;justify-content:center;
-    font-size:15px;font-weight:bold;font-family:Arial,sans-serif;flex-shrink:0;
+    font-size:13px;font-weight:bold;font-family:Arial,sans-serif;flex-shrink:0;
   }
-  .p-body h3{font-size:14.5px;color:var(--coral-dark);margin-bottom:4px;font-family:'Georgia',serif}
-  .p-body p{font-family:Arial,sans-serif;font-size:13.5px;color:var(--text-soft);margin:0}
+  .p-title{flex:1;font-size:15px;font-weight:bold;color:var(--text);font-family:'Georgia',serif;line-height:1.3}
+  .p-arrow{
+    font-size:17px;color:var(--coral);
+    transition:transform .35s ease;font-style:normal;flex-shrink:0;
+  }
+  .p-header.open .p-arrow{transform:rotate(180deg)}
+  .p-content{
+    max-height:0;overflow:hidden;
+    transition:max-height .4s ease,padding .3s;
+  }
+  .p-content.open{max-height:300px;padding:0 18px 16px 60px}
+  .p-content-inner{
+    opacity:0;transform:translateX(-24px);
+    transition:opacity .35s ease .08s, transform .35s ease .08s;
+    font-family:Arial,sans-serif;font-size:13.5px;color:var(--text-soft);line-height:1.6;
+  }
+  .p-content.open .p-content-inner{opacity:1;transform:translateX(0)}
 
   /* ─── 7 ВОПРОСОВ ─────────────────────────────── */
   .questions-list{display:flex;flex-direction:column;gap:8px}
@@ -432,12 +446,30 @@
   .cta-tg:hover{background:var(--rose-bg);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.18)}
   .cta-vk{background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.6)}
   .cta-vk:hover{background:rgba(255,255,255,.3);transform:translateY(-2px)}
-  .ps-block{
-    margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.25);
-    font-family:'Georgia',serif;font-size:14px;color:rgba(255,255,255,.8);
-    font-style:italic;line-height:1.6;
+  /* ─── P.S. БЛОК ─────────────────────────────── */
+  .ps-section{
+    background:linear-gradient(135deg,#fdfaf8,var(--rose-card));
+    border-radius:18px;padding:28px 32px;
+    border:2px dashed var(--rose-mid);
+    text-align:center;
+    box-shadow:0 2px 14px rgba(217,97,74,.07);
   }
-  .ps-block b{color:#fff;font-style:normal}
+  .ps-icon{
+    display:inline-block;
+    font-family:Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;
+    background:var(--coral);color:#fff;border-radius:6px;
+    padding:3px 12px;margin-bottom:14px;
+  }
+  .ps-section p{font-family:'Georgia',serif;font-size:14.5px;color:var(--text-soft);margin-bottom:10px;line-height:1.7}
+  .ps-section p:last-child{margin:0}
+  .ps-quote{
+    font-size:16px !important;color:var(--coral-dark) !important;
+    font-weight:bold;font-style:italic;
+    border-left:4px solid var(--coral);
+    padding:8px 16px;text-align:left;
+    background:var(--white);border-radius:0 10px 10px 0;
+    margin:12px 0 !important;
+  }
 
   /* ─── ПОДВАЛ ─────────────────────────────────── */
   footer{
@@ -813,43 +845,58 @@
 
         <div class="principles" id="principles-list">
 
-          <div class="principle-card" data-delay="0">
-            <div class="p-num">1</div>
-            <div class="p-body">
-              <h3>Вы не создаёте бизнес с нуля</h3>
-              <p>В классическом бизнесе вы строите всё сами: продукт, процессы, маркетинг, команду. В партнёрской модели <b>большая часть системы уже создана.</b> Вы подключаетесь не к идее, а к уже работающей системе.</p>
+          <div class="p-item">
+            <div class="p-header" onclick="togglePrinciple(this)">
+              <div class="p-badge">1</div>
+              <div class="p-title">Вы не создаёте бизнес с нуля</div>
+              <i class="p-arrow">◀</i>
+            </div>
+            <div class="p-content">
+              <div class="p-content-inner">В классическом бизнесе вы строите всё сами: продукт, процессы, маркетинг, команду. В партнёрской модели <b>большая часть системы уже создана.</b> Вы подключаетесь не к идее, а к уже работающей системе.</div>
             </div>
           </div>
 
-          <div class="principle-card" data-delay="80">
-            <div class="p-num">2</div>
-            <div class="p-body">
-              <h3>Бизнес развивается постепенно</h3>
-              <p>Никто не требует бросать основной бизнес. Большинство предпринимателей начинают с <b>нескольких часов в неделю</b> — изучают систему, знакомятся с продуктом, начинают общаться с людьми.</p>
+          <div class="p-item">
+            <div class="p-header" onclick="togglePrinciple(this)">
+              <div class="p-badge">2</div>
+              <div class="p-title">Бизнес развивается постепенно</div>
+              <i class="p-arrow">◀</i>
+            </div>
+            <div class="p-content">
+              <div class="p-content-inner">Никто не требует бросать основной бизнес. Большинство предпринимателей начинают с <b>нескольких часов в неделю</b> — изучают систему, знакомятся с продуктом, начинают общаться с людьми.</div>
             </div>
           </div>
 
-          <div class="principle-card" data-delay="160">
-            <div class="p-num">3</div>
-            <div class="p-body">
-              <h3>Работает сила команды</h3>
-              <p>Самое большое отличие партнёрского бизнеса — это командная модель. Вы не работаете в одиночку. Когда рядом появляется команда, процессы начинают распределяться между людьми — именно поэтому такая модель может <b>постепенно масштабироваться.</b></p>
+          <div class="p-item">
+            <div class="p-header" onclick="togglePrinciple(this)">
+              <div class="p-badge">3</div>
+              <div class="p-title">Работает сила команды</div>
+              <i class="p-arrow">◀</i>
+            </div>
+            <div class="p-content">
+              <div class="p-content-inner">Самое большое отличие партнёрского бизнеса — это командная модель. Вы не работаете в одиночку. Когда рядом появляется команда, процессы начинают распределяться между людьми — именно поэтому такая модель может <b>постепенно масштабироваться.</b></div>
             </div>
           </div>
 
-          <div class="principle-card" data-delay="240">
-            <div class="p-num">4</div>
-            <div class="p-body">
-              <h3>Современные инструменты упрощают работу</h3>
-              <p>Сегодня многое можно делать онлайн: обучающие платформы, автоматические воронки, онлайн-презентации, цифровые инструменты для общения с командой. Многие начинают развивать это направление <b>без кардинального изменения своего графика.</b></p>
+          <div class="p-item">
+            <div class="p-header" onclick="togglePrinciple(this)">
+              <div class="p-badge">4</div>
+              <div class="p-title">Современные инструменты упрощают работу</div>
+              <i class="p-arrow">◀</i>
+            </div>
+            <div class="p-content">
+              <div class="p-content-inner">Сегодня многое можно делать онлайн: обучающие платформы, автоматические воронки, онлайн-презентации, цифровые инструменты для общения с командой. Многие начинают развивать это направление <b>без кардинального изменения своего графика.</b></div>
             </div>
           </div>
 
-          <div class="principle-card" data-delay="320">
-            <div class="p-num">5</div>
-            <div class="p-body">
-              <h3>Каждый выбирает свою скорость</h3>
-              <p>В партнёрском бизнесе нет одного правильного темпа. Кто-то начинает очень активно. Кто-то развивается спокойно и постепенно. Главное — понимать, что это <b>возможность, а не обязательство.</b></p>
+          <div class="p-item">
+            <div class="p-header" onclick="togglePrinciple(this)">
+              <div class="p-badge">5</div>
+              <div class="p-title">Каждый выбирает свою скорость</div>
+              <i class="p-arrow">◀</i>
+            </div>
+            <div class="p-content">
+              <div class="p-content-inner">В партнёрском бизнесе нет одного правильного темпа. Кто-то начинает очень активно. Кто-то развивается спокойно и постепенно. Главное — понимать, что это <b>возможность, а не обязательство.</b></div>
             </div>
           </div>
 
@@ -1151,12 +1198,17 @@
           ВКонтакте
         </a>
       </div>
-      <div class="ps-block">
-        Многие предприниматели читают такие материалы из любопытства. Но иногда одна простая мысль остаётся в голове:<br>
-        <b>«А что если эта модель действительно может работать?»</b><br>
-        И единственный способ это понять — просто посмотреть систему.<br>
-        Иногда один разговор даёт больше понимания, чем недели размышлений.
-      </div>
+    </div>
+  </section>
+
+  <!-- P.S. — отдельный блок -->
+  <section style="padding-bottom:32px">
+    <div class="ps-section">
+      <div class="ps-icon">P.S.</div>
+      <p>Многие предприниматели читают такие материалы из любопытства. Но иногда одна простая мысль остаётся в голове:</p>
+      <p class="ps-quote">«А что если эта модель действительно может работать?»</p>
+      <p>И единственный способ это понять — просто посмотреть систему.<br>
+      Иногда один разговор даёт больше понимания, чем недели размышлений.</p>
     </div>
   </section>
 
@@ -1231,15 +1283,19 @@ function initScheme(){
   }, 100);
 }
 
-// ─── АНИМАЦИЯ ПРИНЦИПОВ ───────────────────────────
-function initPrinciples(){
-  setTimeout(()=>{
-    document.querySelectorAll('.principle-card').forEach(card=>{
-      const delay = parseInt(card.dataset.delay)||0;
-      setTimeout(()=>card.classList.add('visible'), delay);
-    });
-  }, 100);
+// ─── ПРИНЦИПЫ (раскрытие со стрелкой) ────────────
+function togglePrinciple(header){
+  const content = header.nextElementSibling;
+  const isOpen = content.classList.contains('open');
+  // закрываем все
+  document.querySelectorAll('.p-content').forEach(c=>c.classList.remove('open'));
+  document.querySelectorAll('.p-header').forEach(h=>h.classList.remove('open'));
+  if(!isOpen){
+    content.classList.add('open');
+    header.classList.add('open');
+  }
 }
+function initPrinciples(){} // заглушка для совместимости
 
 // ─── INTERSECTION OBSERVER — СИГНАЛЫ ─────────────
 const signalsObserver = new IntersectionObserver(entries=>{
