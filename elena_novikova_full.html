@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Елена Новикова — Практический бизнес-разбор</title>
+<style>
+  :root{
+    --rose-bg:#fde8e3;
+    --rose-mid:#f5c5b8;
+    --rose-card:#fdf0ec;
+    --coral:#d9614a;
+    --coral-dark:#b84a35;
+    --coral-light:#f0a090;
+    --cream:#fdfaf8;
+    --text:#3d2523;
+    --text-soft:#7a5a52;
+    --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--rose-bg);font-family:'Georgia',serif;color:var(--text);line-height:1.7}
+
+  /* ─── ШАПКА ─────────────────────────────────── */
+  header{
+    background:var(--white);
+    border-bottom:3px solid var(--rose-mid);
+    padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:100;
+    box-shadow:0 2px 12px rgba(217,97,74,.12);
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:bold;color:var(--coral-dark);letter-spacing:.3px;text-decoration:none}
+  .logo span{color:var(--text-soft);font-weight:normal;font-size:13px;display:block}
+  .logo-avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--coral);flex-shrink:0}
+  .socials{display:flex;gap:10px}
+  .soc-btn{
+    display:flex;align-items:center;gap:6px;
+    padding:7px 14px;border-radius:24px;font-size:13px;font-family:Arial,sans-serif;
+    font-weight:600;text-decoration:none;transition:all .25s;border:2px solid transparent;
+  }
+  .soc-tg{background:#229ED9;color:#fff}
+  .soc-tg:hover{background:#1a85bb;transform:translateY(-2px);box-shadow:0 4px 14px rgba(34,158,217,.35)}
+  .soc-vk{background:#0077FF;color:#fff}
+  .soc-vk:hover{background:#005fcc;transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,119,255,.35)}
+  .soc-icon{display:flex;align-items:center;flex-shrink:0}
+
+  /* ─── HERO ───────────────────────────────────── */
+  .hero{
+    background:linear-gradient(135deg, #fde8e3 0%, #f5c5b8 50%, #f0b0a0 100%);
+    padding:60px 24px 50px;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;top:-60px;right:-60px;
+    width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle, rgba(217,97,74,.18) 0%, transparent 70%);
+  }
+  .hero::after{
+    content:'';position:absolute;bottom:-40px;left:-40px;
+    width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(circle, rgba(217,97,74,.12) 0%, transparent 70%);
+  }
+  .hero-tag{
+    display:inline-block;background:var(--coral);color:#fff;
+    font-size:12px;font-family:Arial,sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+    padding:5px 16px;border-radius:20px;margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(22px,5vw,38px);font-weight:bold;color:var(--text);
+    line-height:1.3;max-width:760px;margin:0 auto 16px;
+  }
+  .hero h1 em{color:var(--coral-dark);font-style:normal}
+  .hero-sub{
+    font-size:16px;color:var(--text-soft);max-width:580px;
+    margin:0 auto 12px;font-family:Arial,sans-serif;
+  }
+  .hero-sub2{
+    font-size:14px;color:var(--text-soft);max-width:520px;
+    margin:0 auto 28px;font-family:Arial,sans-serif;font-style:italic;
+  }
+  .hero-meta{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,.7);backdrop-filter:blur(6px);
+    border-radius:30px;padding:8px 20px;
+    font-size:13px;font-family:Arial,sans-serif;color:var(--text-soft);
+  }
+  .hero-meta span{color:var(--coral);font-size:16px}
+
+  /* ─── КОНТЕЙНЕР ─────────────────────────────── */
+  .wrap{max-width:740px;margin:0 auto;padding:0 16px}
+
+  /* ─── СЕКЦИЯ ─────────────────────────────────── */
+  section{padding:36px 0 0}
+
+  /* ─── ВВОДНЫЙ БЛОК ──────────────────────────── */
+  .intro-card{
+    background:var(--white);border-radius:18px;padding:28px 32px;
+    box-shadow:0 4px 24px rgba(217,97,74,.10);
+    border-left:5px solid var(--coral);margin-bottom:6px;
+  }
+  .intro-card h2{font-size:20px;color:var(--coral-dark);margin-bottom:14px}
+  .intro-card p{font-family:Arial,sans-serif;font-size:14.5px;color:var(--text-soft);margin-bottom:10px}
+  .check-list{list-style:none;padding:0}
+  .check-list li{
+    font-family:Arial,sans-serif;font-size:14px;color:var(--text);
+    padding:6px 0 6px 30px;position:relative;border-bottom:1px dashed var(--rose-mid);
+  }
+  .check-list li:last-child{border:none}
+  .check-list li::before{content:'✔';position:absolute;left:0;color:var(--coral);font-weight:bold}
+
+  /* ─── СЕКЦИЯ-ЗАГОЛОВОК ───────────────────────── */
+  .sec-title{
+    font-size:clamp(16px,3vw,21px);font-weight:bold;color:var(--coral-dark);
+    margin:32px 0 14px;padding-left:16px;
+    border-left:4px solid var(--coral);
+    font-family:'Georgia',serif;line-height:1.35;
+  }
+
+  /* ─── АККОРДЕОН ─────────────────────────────── */
+  .accordion{margin-bottom:10px}
+  .acc-btn{
+    width:100%;background:var(--white);border:none;border-radius:14px;
+    padding:18px 22px;display:flex;align-items:center;justify-content:space-between;
+    cursor:pointer;text-align:left;
+    box-shadow:0 2px 12px rgba(217,97,74,.09);
+    transition:all .25s;
+  }
+  .acc-btn:hover{background:var(--rose-card);box-shadow:0 4px 18px rgba(217,97,74,.15)}
+  .acc-btn.open{background:var(--coral);border-radius:14px 14px 0 0;box-shadow:0 4px 18px rgba(217,97,74,.25)}
+  .acc-btn.open .acc-title{color:#fff}
+  .acc-btn.open .acc-icon{color:#fff;transform:rotate(180deg)}
+  .acc-left{display:flex;align-items:center;gap:14px}
+  .acc-emoji{font-size:22px;min-width:30px}
+  .acc-title{font-size:16px;font-weight:bold;color:var(--text);transition:color .2s}
+  .acc-icon{font-size:20px;color:var(--coral);transition:transform .3s,color .2s;font-style:normal}
+  .acc-body{
+    background:var(--white);border-radius:0 0 14px 14px;
+    max-height:0;overflow:hidden;transition:max-height .45s ease,padding .3s;
+    box-shadow:0 4px 12px rgba(217,97,74,.08);
+  }
+  .acc-body.open{max-height:3000px;padding:22px 26px 26px}
+  .acc-body h3{font-size:15px;color:var(--coral-dark);margin:16px 0 6px}
+  .acc-body h3:first-child{margin-top:0}
+  .acc-body p{font-family:Arial,sans-serif;font-size:14px;color:var(--text-soft);margin-bottom:10px}
+  .acc-body ul,.acc-body ol{padding-left:20px;margin-bottom:10px}
+  .acc-body li{font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin-bottom:5px}
+  .acc-body b{color:var(--coral-dark)}
+  .ins-box{
+    background:var(--rose-card);border-radius:10px;padding:14px 18px;margin-bottom:10px;
+    border-left:4px solid var(--coral-light);
+  }
+  .ins-box p{margin:0;font-size:13.5px;color:var(--text)}
+  .minus-list{list-style:none;padding:0}
+  .minus-list li{padding:4px 0 4px 24px;position:relative;font-family:Arial,sans-serif;font-size:14px;color:var(--text-soft)}
+  .minus-list li::before{content:'—';position:absolute;left:0;color:var(--coral-light)}
+  .check-list2{list-style:none;padding:0}
+  .check-list2 li{padding:5px 0 5px 28px;position:relative;font-family:Arial,sans-serif;font-size:14px;color:var(--text)}
+  .check-list2 li::before{content:'✔';position:absolute;left:0;color:var(--coral);font-weight:bold}
+  .divider{height:1px;background:var(--rose-mid);margin:16px 0}
+
+  /* ─── СИГНАЛЫ (слайд слева) ──────────────────── */
+  .signals-block{display:flex;flex-direction:column;gap:12px;margin-bottom:6px}
+  .signal-card{
+    display:flex;gap:16px;align-items:flex-start;
+    background:var(--white);border-radius:14px;padding:18px 20px;
+    box-shadow:0 2px 12px rgba(217,97,74,.09);
+    opacity:0;transform:translateX(-50px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .signal-card.slide-in{opacity:1;transform:translateX(0)}
+  .signal-num{
+    min-width:42px;height:42px;border-radius:50%;
+    background:var(--coral);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:17px;font-weight:bold;font-family:Arial,sans-serif;
+    flex-shrink:0;
+  }
+  .signal-body h3{font-size:15px;color:var(--coral-dark);margin-bottom:5px}
+  .signal-body p{font-family:Arial,sans-serif;font-size:13.5px;color:var(--text-soft);margin:0}
+  .signal-body .signal-quote{
+    margin-top:8px;font-style:italic;color:var(--coral-dark);
+    font-family:'Georgia',serif;font-size:14px;
+    border-left:3px solid var(--coral-light);padding-left:12px;
+  }
+
+  /* ─── СХЕМА ШАГОВ ────────────────────────────── */
+  .scheme{display:flex;flex-direction:column;gap:0}
+  .scheme-step{
+    display:flex;gap:16px;align-items:flex-start;
+    background:var(--white);border-radius:14px;padding:18px 20px;
+    box-shadow:0 2px 12px rgba(217,97,74,.08);
+    opacity:0;transform:translateX(-30px);transition:all .5s ease;
+    position:relative;
+  }
+  .scheme-step.visible{opacity:1;transform:translateX(0)}
+  .scheme-step:not(:last-child)::after{
+    content:'↓';position:absolute;bottom:-22px;left:34px;
+    font-size:20px;color:var(--coral);line-height:1;
+  }
+  .step-num{
+    min-width:40px;height:40px;border-radius:50%;
+    background:var(--coral);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:17px;font-weight:bold;font-family:Arial,sans-serif;
+    flex-shrink:0;
+  }
+  .step-body h3{font-size:15px;color:var(--coral-dark);margin-bottom:5px}
+  .step-body p{font-family:Arial,sans-serif;font-size:13.5px;color:var(--text-soft)}
+  .step-sep{height:28px}
+  .no-list{list-style:none;padding:0;margin-top:6px}
+  .no-list li{padding:3px 0 3px 24px;position:relative;font-family:Arial,sans-serif;font-size:13.5px}
+  .no-list li::before{content:'❌';position:absolute;left:0;font-size:12px}
+
+  /* ─── 5 ПРИЧИН ───────────────────────────────── */
+  .reasons{display:flex;flex-direction:column;gap:8px}
+  .reason-item{
+    background:var(--white);border-radius:14px;padding:0;
+    box-shadow:0 2px 12px rgba(217,97,74,.08);overflow:hidden;
+  }
+  .reason-q{
+    padding:16px 20px;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;
+    transition:background .2s;font-family:'Georgia',serif;
+  }
+  .reason-q:hover{background:var(--rose-card)}
+  .reason-q.open{background:var(--rose-card)}
+  .reason-num{
+    font-size:13px;font-family:Arial,sans-serif;font-weight:700;
+    color:var(--white);background:var(--coral);
+    border-radius:50%;width:26px;height:26px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-right:12px;
+  }
+  .reason-title{font-size:15px;font-weight:bold;color:var(--text);flex:1}
+  .reason-icon{font-size:18px;color:var(--coral);transition:transform .3s;font-style:normal;margin-left:10px}
+  .reason-q.open .reason-icon{transform:rotate(45deg)}
+  .reason-a{
+    max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;
+    font-family:Arial,sans-serif;font-size:14px;color:var(--text-soft);
+  }
+  .reason-a.open{max-height:300px;padding:0 20px 18px}
+
+  /* ─── ПРИНЦИПЫ ───────────────────────────────── */
+  .principles{display:flex;flex-direction:column;gap:10px}
+  .principle-card{
+    background:var(--white);border-radius:14px;padding:16px 20px;
+    box-shadow:0 2px 10px rgba(217,97,74,.08);
+    display:flex;gap:14px;align-items:flex-start;
+    opacity:0;transform:translateY(20px);
+    transition:opacity .45s ease, transform .45s ease;
+  }
+  .principle-card.visible{opacity:1;transform:translateY(0)}
+  .p-num{
+    min-width:36px;height:36px;border-radius:10px;
+    background:linear-gradient(135deg,var(--coral),var(--coral-dark));color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;font-weight:bold;font-family:Arial,sans-serif;flex-shrink:0;
+  }
+  .p-body h3{font-size:14.5px;color:var(--coral-dark);margin-bottom:4px;font-family:'Georgia',serif}
+  .p-body p{font-family:Arial,sans-serif;font-size:13.5px;color:var(--text-soft);margin:0}
+
+  /* ─── 7 ВОПРОСОВ ─────────────────────────────── */
+  .questions-list{display:flex;flex-direction:column;gap:8px}
+  .q-item{
+    background:var(--white);border-radius:14px;overflow:hidden;
+    box-shadow:0 2px 10px rgba(217,97,74,.08);
+  }
+  .q-head{
+    padding:15px 20px;cursor:pointer;
+    display:flex;align-items:center;gap:12px;
+    transition:background .2s;
+  }
+  .q-head:hover{background:var(--rose-card)}
+  .q-head.open{background:var(--coral)}
+  .q-head.open .q-num{background:rgba(255,255,255,.25);color:#fff}
+  .q-head.open .q-text{color:#fff}
+  .q-head.open .q-arr{color:#fff;transform:rotate(90deg)}
+  .q-num{
+    min-width:30px;height:30px;border-radius:50%;
+    background:var(--rose-mid);color:var(--coral-dark);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:bold;font-family:Arial,sans-serif;flex-shrink:0;
+    transition:all .2s;
+  }
+  .q-text{font-family:'Georgia',serif;font-size:14.5px;font-weight:bold;color:var(--text);flex:1;transition:color .2s}
+  .q-arr{font-size:16px;color:var(--coral);transition:transform .3s,color .2s;font-style:normal}
+  .q-answer{
+    max-height:0;overflow:hidden;
+    transition:max-height .35s ease,padding .25s;
+    font-family:Arial,sans-serif;font-size:14px;color:var(--text-soft);
+  }
+  .q-answer.open{max-height:200px;padding:12px 20px 18px}
+  .q-answer p{margin:0}
+
+  /* ─── ВОЗРАЖЕНИЯ (МИФЫ) ──────────────────────── */
+  .myth{
+    background:var(--white);border-radius:14px;padding:0;
+    box-shadow:0 2px 12px rgba(217,97,74,.08);
+    margin-bottom:8px;overflow:hidden;
+  }
+  .myth-q{
+    padding:16px 20px;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:15px;font-weight:bold;color:var(--text);
+    transition:background .2s;font-family:Arial,sans-serif;
+  }
+  .myth-q:hover{background:var(--rose-card)}
+  .myth-q .myth-icon{font-size:18px;color:var(--coral);transition:transform .3s;font-style:normal;margin-left:10px;flex-shrink:0}
+  .myth-q.open{background:var(--rose-card)}
+  .myth-q.open .myth-icon{transform:rotate(45deg)}
+  .myth-badge{
+    font-size:11px;font-family:Arial,sans-serif;font-weight:700;
+    background:var(--coral);color:#fff;border-radius:6px;
+    padding:2px 8px;margin-right:10px;flex-shrink:0;
+    text-transform:uppercase;letter-spacing:.5px;
+  }
+  .myth-a{
+    max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;
+    font-family:Arial,sans-serif;font-size:14px;color:var(--text-soft);
+    border-top:0px solid var(--rose-mid);
+  }
+  .myth-a.open{max-height:250px;padding:14px 20px 18px;border-top-width:1px}
+
+  /* ─── 3 ФОРМАТА ──────────────────────────────── */
+  .formats{display:flex;flex-direction:column;gap:12px}
+  .format-card{
+    background:var(--white);border-radius:16px;padding:22px 24px;
+    box-shadow:0 2px 14px rgba(217,97,74,.09);
+    display:flex;gap:16px;align-items:flex-start;
+    border-left:5px solid var(--coral);
+    opacity:0;transform:translateX(-40px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .format-card.slide-in{opacity:1;transform:translateX(0)}
+  .format-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+  .format-num{
+    font-size:11px;font-family:Arial,sans-serif;font-weight:700;
+    background:var(--coral);color:#fff;border-radius:6px;
+    padding:2px 8px;margin-bottom:6px;display:inline-block;
+    text-transform:uppercase;letter-spacing:.5px;
+  }
+  .format-body h3{font-size:15px;font-weight:bold;color:var(--coral-dark);margin-bottom:6px}
+  .format-body p{font-family:Arial,sans-serif;font-size:13.5px;color:var(--text-soft);margin-bottom:6px}
+  .format-body p:last-child{margin:0}
+  .format-quote{
+    margin-top:8px;font-style:italic;color:var(--coral-dark);
+    font-family:'Georgia',serif;font-size:13.5px;
+    background:var(--rose-card);border-radius:8px;padding:8px 12px;
+  }
+
+  /* ─── ПРИГЛАШЕНИЕ-ВСТАВКА ───────────────────── */
+  .invite-block{
+    display:flex;gap:16px;align-items:flex-start;
+    background:linear-gradient(135deg,#fde8e3,#fdf0ec);
+    border:2px dashed var(--coral-light);border-radius:16px;
+    padding:20px 22px;margin-bottom:10px;
+  }
+  .invite-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+  .invite-text p{font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin-bottom:6px}
+  .invite-text p:last-child{margin-bottom:0;color:var(--text-soft);font-style:italic}
+  .invite-text b{color:var(--coral-dark)}
+
+  /* ─── ИСТОРИЯ ────────────────────────────────── */
+  .story-card{
+    background:linear-gradient(135deg,#fff,var(--rose-card));
+    border-radius:18px;padding:28px 30px;
+    box-shadow:0 4px 20px rgba(217,97,74,.12);
+    border:1px solid var(--rose-mid);
+  }
+  .story-top{display:flex;gap:22px;align-items:flex-start;margin-bottom:18px}
+  .story-photo{
+    flex-shrink:0;width:120px;height:120px;border-radius:50%;
+    object-fit:cover;object-position:center top;
+    border:4px solid var(--coral);
+    box-shadow:0 4px 16px rgba(217,97,74,.3);
+  }
+  .story-text-col{flex:1}
+  .story-card h2{font-size:21px;color:var(--coral-dark);margin-bottom:10px}
+  .story-card p{font-family:Arial,sans-serif;font-size:14.5px;color:var(--text-soft);margin-bottom:10px}
+  @media(max-width:480px){
+    .story-top{flex-direction:column;align-items:center;text-align:center}
+    .story-photo{width:100px;height:100px}
+  }
+  .story-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+  .stat-box{
+    background:var(--white);border-radius:12px;padding:14px 16px;
+    border-left:4px solid var(--coral);text-align:left;
+  }
+  .stat-num{font-size:20px;font-weight:bold;color:var(--coral-dark);line-height:1.1}
+  .stat-label{font-family:Arial,sans-serif;font-size:12px;color:var(--text-soft);margin-top:3px}
+  .travel-row{
+    display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;
+  }
+  .travel-tag{
+    font-family:Arial,sans-serif;font-size:12px;
+    background:var(--rose-card);color:var(--coral-dark);
+    border:1px solid var(--rose-mid);border-radius:20px;
+    padding:3px 12px;
+  }
+
+  /* ─── CTA ────────────────────────────────────── */
+  .cta-section{
+    background:linear-gradient(135deg,var(--coral) 0%,var(--coral-dark) 100%);
+    border-radius:20px;padding:40px 28px;text-align:center;margin:32px 0 0;
+    box-shadow:0 8px 32px rgba(217,97,74,.35);
+  }
+  .cta-section h2{font-size:22px;color:#fff;margin-bottom:12px;line-height:1.35}
+  .cta-section p{font-family:Arial,sans-serif;font-size:14.5px;color:rgba(255,255,255,.88);margin-bottom:16px}
+  .cta-list{list-style:none;padding:0;text-align:left;max-width:400px;margin:0 auto 22px}
+  .cta-list li{
+    font-family:Arial,sans-serif;font-size:14px;color:rgba(255,255,255,.9);
+    padding:4px 0 4px 26px;position:relative;
+  }
+  .cta-list li::before{content:'✔';position:absolute;left:0;color:rgba(255,255,255,.7);font-weight:bold}
+  .cta-meta{
+    font-family:Arial,sans-serif;font-size:13px;
+    color:rgba(255,255,255,.7);margin-bottom:20px;font-style:italic;
+  }
+  .cta-word{
+    display:inline-block;background:rgba(255,255,255,.2);
+    border:2px solid rgba(255,255,255,.5);border-radius:12px;
+    padding:10px 36px;font-size:24px;font-weight:bold;color:#fff;
+    letter-spacing:3px;margin-bottom:22px;
+  }
+  .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .cta-btn{
+    display:flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:30px;font-size:15px;font-weight:700;
+    font-family:Arial,sans-serif;text-decoration:none;transition:all .25s;
+  }
+  .cta-tg{background:#fff;color:var(--coral-dark)}
+  .cta-tg:hover{background:var(--rose-bg);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.18)}
+  .cta-vk{background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.6)}
+  .cta-vk:hover{background:rgba(255,255,255,.3);transform:translateY(-2px)}
+  .ps-block{
+    margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.25);
+    font-family:'Georgia',serif;font-size:14px;color:rgba(255,255,255,.8);
+    font-style:italic;line-height:1.6;
+  }
+  .ps-block b{color:#fff;font-style:normal}
+
+  /* ─── ПОДВАЛ ─────────────────────────────────── */
+  footer{
+    text-align:center;padding:24px 16px 32px;margin-top:20px;
+    font-family:Arial,sans-serif;font-size:12.5px;color:var(--text-soft);
+  }
+  footer a{color:var(--coral);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .footer-socials{display:flex;gap:10px;justify-content:center;margin-bottom:10px}
+
+  /* ─── RESPONSIVE ─────────────────────────────── */
+  @media(max-width:600px){
+    header{padding:10px 14px}
+    .logo{font-size:14px}
+    .soc-btn{padding:6px 10px;font-size:12px}
+    .hero{padding:40px 16px 36px}
+    .wrap{padding:0 12px}
+    .intro-card,.story-card{padding:20px 18px}
+    .story-stats{grid-template-columns:1fr}
+    .acc-body.open{padding:16px 18px 20px}
+    .cta-section{padding:28px 18px}
+    .cta-btns{flex-direction:column;align-items:center}
+    .signals-block,.formats{gap:8px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ ШАПКА ═══════════════════ -->
+<header>
+  <div class="logo">
+    <img class="logo-avatar" src="Елена Новикова.jpg" alt="Елена Новикова">
+    <div>
+      Елена Новикова
+      <span>Практический бизнес-разбор</span>
+    </div>
+  </div>
+  <div class="socials">
+    <a class="soc-btn soc-tg" href="https://t.me/ElenaNovikova_f" target="_blank">
+      <span class="soc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span> Telegram
+    </a>
+    <a class="soc-btn soc-vk" href="https://vk.com/novikova_elena_raf" target="_blank">
+      <span class="soc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.252.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg></span> ВКонтакте
+    </a>
+  </div>
+</header>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<div class="hero">
+  <div class="hero-tag">Полный гайд для предпринимательниц</div>
+  <h1>Если ваш бизнес остановится на месяц —<br><em>что станет с доходом?</em></h1>
+  <p class="hero-sub">Практический разбор о второй модели дохода для женщин-предпринимателей</p>
+  <p class="hero-sub2">Бизнес есть. Доход есть. А свободы всё равно нет?</p>
+  <div class="hero-meta">
+    <span>📖</span> Полный гайд · 23 раздела
+  </div>
+</div>
+
+<!-- ═══════════════════ КОНТЕНТ ═══════════════════ -->
+<div class="wrap">
+
+  <!-- ВВЕДЕНИЕ -->
+  <section>
+    <div class="intro-card">
+      <h2>Что вы найдёте в этом разборе:</h2>
+      <p>Мои дорогие, этот гайд написан коротко и по делу — чтобы вы спокойно посмотрели на одну интересную модель дохода, о которой сегодня всё чаще задумываются предприниматели.</p>
+      <ul class="check-list">
+        <li>Почему доход большинства бизнесов зависит от владельца — и как это изменить</li>
+        <li>В какой момент предприниматели начинают искать <b>вторую модель дохода</b></li>
+        <li>Какую модель добавляют сегодня — без склада, закупок и расширения штата</li>
+        <li><b>3 сигнала</b>, что вы уже готовы к следующему уровню дохода</li>
+        <li>Простая схема партнёрской модели + 5 принципов совмещения с бизнесом</li>
+        <li>7 честных вопросов, которые стоит задать себе</li>
+        <li>5 мифов о сетевом бизнесе — и что на самом деле за ними стоит</li>
+        <li>3 формата, как можно мягко начать знакомство с этой моделью</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ ЧАСТЬ 1: ЧЕСТНЫЙ ВОПРОС ═══ -->
+  <section>
+    <div class="accordion" id="acc-q1">
+      <button class="acc-btn" onclick="toggleAcc('q1')">
+        <div class="acc-left">
+          <span class="acc-emoji">🤔</span>
+          <span class="acc-title">Сначала один честный вопрос</span>
+        </div>
+        <i class="acc-icon">▾</i>
+      </button>
+      <div class="acc-body" id="body-q1">
+        <p>Мои дорогие, давайте начнём с очень простого, но важного вопроса.</p>
+        <div class="ins-box">
+          <p><b>Если ваш бизнес остановится на месяц, что произойдёт с доходом?</b></p>
+        </div>
+        <p>Попробуйте ответить честно. У большинства предпринимателей ответ звучит примерно так:</p>
+        <ul class="minus-list">
+          <li>доход сильно снизится</li>
+          <li>поток денег почти остановится</li>
+          <li>придётся срочно возвращаться к работе.</li>
+        </ul>
+        <p>И это абсолютно нормально. Так работает <b>большинство классических бизнес-моделей.</b></p>
+        <p>Но именно в этот момент многие предприниматели начинают задумываться:</p>
+        <div class="ins-box">
+          <p>Можно ли создать ещё одну модель дохода, <b>которая не будет зависеть только от моего времени?</b></p>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3>Почему всё больше предпринимателей думают о второй модели дохода</h3>
+        <p>Когда человек только начинает свой бизнес, он думает прежде всего о развитии. Но через несколько лет приходит другое понимание. Бизнес — это не только доход. Это ещё и:</p>
+        <ul class="minus-list">
+          <li>ответственность</li>
+          <li>постоянные решения</li>
+          <li>работа без выходных</li>
+          <li>зависимость многих процессов от владельца.</li>
+        </ul>
+        <p>И даже если бизнес успешный, внутри иногда появляется мысль:</p>
+        <div class="ins-box"><p><b>«Я хочу, чтобы деньги приходили не только тогда, когда я работаю.»</b></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ЧАСТЬ 2: ЛОВУШКА + 3 ИНСАЙТА ═══ -->
+  <section>
+    <div class="accordion" id="acc-trap">
+      <button class="acc-btn" onclick="toggleAcc('trap')">
+        <div class="acc-left">
+          <span class="acc-emoji">💡</span>
+          <span class="acc-title">Ловушка предпринимателя и 3 инсайта</span>
+        </div>
+        <i class="acc-icon">▾</i>
+      </button>
+      <div class="acc-body" id="body-trap">
+        <p>Когда доход перестаёт расти так быстро, как хотелось бы, предприниматели чаще всего делают одно и то же. Они пытаются <b>усилить существующую модель бизнеса.</b></p>
+        <ul class="minus-list">
+          <li>расширяют ассортимент</li>
+          <li>увеличивают закупки</li>
+          <li>нанимают новых сотрудников</li>
+          <li>открывают дополнительную точку.</li>
+        </ul>
+        <p>Но почти всегда это означает одно: <b>расходы растут вместе с доходом.</b> А иногда — даже быстрее.</p>
+        <div class="ins-box"><p>И тогда возникает вопрос: <b>можно ли масштабировать доход по-другому?</b></p></div>
+
+        <div class="divider"></div>
+        <h3>Три предпринимательских инсайта</h3>
+
+        <div class="ins-box">
+          <p><b>Инсайт №1. Доход бизнеса почти всегда ограничен временем владельца.</b><br>
+          Можно делегировать часть процессов. Можно автоматизировать некоторые задачи. Но в большинстве малых бизнесов ключевые решения всё равно остаются за владельцем. И именно поэтому доход часто связан с количеством времени, которое человек вкладывает в работу.</p>
+        </div>
+        <div class="ins-box">
+          <p><b>Инсайт №2. Рост бизнеса требует новых вложений.</b><br>
+          Чтобы вырасти, обычно приходится расширять помещение, увеличивать штат, вкладывать больше денег в закупки, усиливать маркетинг. Это нормальная логика бизнеса. Но она делает масштабирование <b>дороже и сложнее.</b></p>
+        </div>
+        <div class="ins-box">
+          <p><b>Инсайт №3. Иногда рост появляется не внутри старой модели — а рядом с ней.</b><br>
+          Поэтому всё больше предпринимателей начинают добавлять вторую модель дохода, которую можно развивать параллельно.</p>
+        </div>
+
+        <div class="divider"></div>
+        <h3>Какие модели сегодня добавляют предприниматели</h3>
+        <p>Сегодня существует несколько направлений, которые предприниматели используют как дополнительный источник дохода:</p>
+        <ul class="minus-list">
+          <li>онлайн-проекты</li>
+          <li>партнёрские программы</li>
+          <li>инвестиционные инструменты</li>
+          <li>образовательные продукты</li>
+          <li>сетевой партнёрский бизнес.</li>
+        </ul>
+        <p>И именно последняя модель сегодня всё чаще привлекает внимание предпринимателей.</p>
+
+        <div class="divider"></div>
+        <h3>Но не тот сетевой бизнес, о котором вы могли слышать раньше</h3>
+        <p>Когда люди слышат слово «сетевой», у многих сразу возникают старые стереотипы: навязывание, каталоги, бесконечные продажи. Но <b>современный партнёрский бизнес устроен совсем иначе.</b> Сегодня это прежде всего:</p>
+        <ul class="check-list2">
+          <li>система обучения</li>
+          <li>цифровые инструменты</li>
+          <li>автоматизация процессов</li>
+          <li>масштабирование через команду.</li>
+        </ul>
+        <div class="ins-box"><p>Если система выстроена правильно, она может постепенно создавать <b>доход, который не зависит только от личного времени человека.</b></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 СИГНАЛА — слайд слева ═══ -->
+  <section>
+    <p class="sec-title">3 сигнала, что предпринимательница готова к следующему уровню дохода</p>
+    <div class="signals-block" id="signals-block">
+
+      <div class="signal-card" data-delay="0">
+        <div class="signal-num">1</div>
+        <div class="signal-body">
+          <h3>Вы уже умеете делать бизнес</h3>
+          <p>Вы знаете, как работать с людьми. Понимаете, как строятся процессы. Умеете принимать решения, брать ответственность, доводить дело до результата.</p>
+          <p style="margin-top:6px;font-family:Arial,sans-serif;font-size:13px;color:var(--coral-dark)">Именно поэтому предприниматели часто <b>быстрее других осваивают новые модели бизнеса.</b></p>
+        </div>
+      </div>
+
+      <div class="signal-card" data-delay="150">
+        <div class="signal-num">2</div>
+        <div class="signal-body">
+          <h3>Вы чувствуете потолок роста</h3>
+          <p>Ваш бизнес работает. Но иногда возникает ощущение, что каждый следующий шаг становится всё сложнее. Рост требует больше времени, больше вложений, больше контроля.</p>
+          <div class="signal-quote">«А есть ли другие способы масштабировать доход?»</div>
+        </div>
+      </div>
+
+      <div class="signal-card" data-delay="300">
+        <div class="signal-num">3</div>
+        <div class="signal-body">
+          <h3>Вы начинаете думать стратегически</h3>
+          <p>На определённом этапе предприниматель перестаёт думать только о сегодняшнем доходе. Появляются другие вопросы:</p>
+          <ul class="minus-list" style="margin-top:6px">
+            <li>как создать финансовую устойчивость</li>
+            <li>как не зависеть от одного источника дохода</li>
+            <li>как построить систему, которая работает долгие годы.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ ЧАСТЬ 3: СХЕМА ═══ -->
+  <section>
+    <div class="accordion" id="acc-scheme">
+      <button class="acc-btn" onclick="toggleAcc('scheme'); initScheme()">
+        <div class="acc-left">
+          <span class="acc-emoji">📊</span>
+          <span class="acc-title">Простая схема второй модели дохода</span>
+        </div>
+        <i class="acc-icon">▾</i>
+      </button>
+      <div class="acc-body" id="body-scheme">
+        <p style="margin-bottom:18px">Чтобы было легче понять саму идею, покажу очень упрощённую схему:</p>
+        <div class="scheme" id="scheme-steps">
+
+          <div class="scheme-step" data-delay="0">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h3>Предприниматель — это уже преимущество</h3>
+              <p>У вас уже есть опыт: работать с людьми, принимать решения, организовывать процессы, доводить дело до результата. <b>Именно поэтому предприниматели обычно быстрее разбираются в новой модели бизнеса.</b></p>
+            </div>
+          </div>
+          <div class="step-sep"></div>
+
+          <div class="scheme-step" data-delay="150">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h3>Партнёрская система — всё уже есть</h3>
+              <p>Вы подключаетесь к системе, где уже есть продукт, маркетинг, обучение, инструменты работы. Поэтому <b>не нужно:</b></p>
+              <ul class="no-list">
+                <li>создавать продукт</li>
+                <li>арендовать помещение</li>
+                <li>закупать товар</li>
+                <li>нанимать сотрудников</li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-sep"></div>
+
+          <div class="scheme-step" data-delay="300">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h3>Формирование команды</h3>
+              <p>Постепенно рядом с вами появляется команда партнёров. Кто-то приходит за дополнительным доходом. Кто-то — за возможностью изменить свою жизнь. И постепенно начинает работать <b>эффект масштабирования.</b></p>
+            </div>
+          </div>
+          <div class="step-sep"></div>
+
+          <div class="scheme-step" data-delay="450">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h3>Система дохода</h3>
+              <p>Доход начинает формироваться из двух источников: ✔ ваш результат + ✔ результат команды. Именно здесь появляется возможность <b>масштабирования без увеличения расходов.</b></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ЧАСТЬ 4: 5 ПРИЧИН ═══ -->
+  <section>
+    <div class="accordion" id="acc-reasons">
+      <button class="acc-btn" onclick="toggleAcc('reasons')">
+        <div class="acc-left">
+          <span class="acc-emoji">🎯</span>
+          <span class="acc-title">5 причин, почему предприниматели рассматривают эту модель</span>
+        </div>
+        <i class="acc-icon">▾</i>
+      </button>
+      <div class="acc-body" id="body-reasons">
+        <p style="margin-bottom:14px">За последние годы я всё чаще замечаю одну тенденцию: к партнёрскому бизнесу приходят <b>уже состоявшиеся предприниматели.</b> И у этого есть несколько очень понятных причин.</p>
+        <div class="reasons">
+
+          <div class="reason-item">
+            <div class="reason-q" onclick="toggleReason(this)">
+              <div class="reason-num">1</div>
+              <div class="reason-title">Масштабировать доход без расширения бизнеса</div>
+              <i class="reason-icon">+</i>
+            </div>
+            <div class="reason-a">
+              В классическом бизнесе рост связан с увеличением расходов: помещение, штат, закупки, ответственность. Партнёрская модель позволяет увеличивать доход <b>за счёт роста команды,</b> а не только за счёт увеличения собственных затрат.
+            </div>
+          </div>
+
+          <div class="reason-item">
+            <div class="reason-q" onclick="toggleReason(this)">
+              <div class="reason-num">2</div>
+              <div class="reason-title">Минимальные финансовые риски</div>
+              <i class="reason-icon">+</i>
+            </div>
+            <div class="reason-a">
+              Открытие нового бизнеса почти всегда связано с вложениями: аренда, ремонт, закупка оборудования, зарплаты. В партнёрской модели вход обычно намного проще. Не требуется больших вложений — риски гораздо ниже. Это делает её удобной <b>как второе направление дохода.</b>
+            </div>
+          </div>
+
+          <div class="reason-item">
+            <div class="reason-q" onclick="toggleReason(this)">
+              <div class="reason-num">3</div>
+              <div class="reason-title">Возможность работать из любой точки</div>
+              <i class="reason-icon">+</i>
+            </div>
+            <div class="reason-a">
+              Сегодня многие процессы можно вести онлайн. Партнёрский бизнес позволяет работать из дома, во время путешествий, не привязываться к одному месту. Для многих предпринимателей это становится важным преимуществом.
+            </div>
+          </div>
+
+          <div class="reason-item">
+            <div class="reason-q" onclick="toggleReason(this)">
+              <div class="reason-num">4</div>
+              <div class="reason-title">Система обучения и поддержка</div>
+              <i class="reason-icon">+</i>
+            </div>
+            <div class="reason-a">
+              В классическом бизнесе предприниматель часто остаётся один на один со своими задачами. В партнёрской модели обычно существует система обучения, наставничество, поддержка команды и готовые инструменты работы. Это помогает <b>быстрее освоить новую модель.</b>
+            </div>
+          </div>
+
+          <div class="reason-item">
+            <div class="reason-q" onclick="toggleReason(this)">
+              <div class="reason-num">5</div>
+              <div class="reason-title">Возможность создать актив</div>
+              <i class="reason-icon">+</i>
+            </div>
+            <div class="reason-a">
+              В традиционном бизнесе актив связан с материальными вещами: помещение, оборудование, товар. Партнёрская модель создаёт другой тип актива — это <b>структура людей и система дохода,</b> которая может продолжать работать даже тогда, когда человек не участвует в каждом процессе лично.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ЧАСТЬ 5: КАК СОВМЕЩАТЬ — ПРИНЦИПЫ ═══ -->
+  <section>
+    <div class="accordion" id="acc-combine">
+      <button class="acc-btn" onclick="toggleAcc('combine'); initPrinciples()">
+        <div class="acc-left">
+          <span class="acc-emoji">⚖️</span>
+          <span class="acc-title">Как совмещать два бизнеса и не выгорать</span>
+        </div>
+        <i class="acc-icon">▾</i>
+      </button>
+      <div class="acc-body" id="body-combine">
+        <p style="margin-bottom:6px">Один из самых частых вопросов, который мне задают предприниматели:</p>
+        <div class="ins-box"><p><b>«Как можно заниматься ещё одним бизнесом, если и так много дел?»</b></p></div>
+        <p style="margin-bottom:16px">Партнёрская модель строится по <b>другим принципам,</b> чем классический бизнес. Вот в чём разница:</p>
+
+        <div class="principles" id="principles-list">
+
+          <div class="principle-card" data-delay="0">
+            <div class="p-num">1</div>
+            <div class="p-body">
+              <h3>Вы не создаёте бизнес с нуля</h3>
+              <p>В классическом бизнесе вы строите всё сами: продукт, процессы, маркетинг, команду. В партнёрской модели <b>большая часть системы уже создана.</b> Вы подключаетесь не к идее, а к уже работающей системе.</p>
+            </div>
+          </div>
+
+          <div class="principle-card" data-delay="80">
+            <div class="p-num">2</div>
+            <div class="p-body">
+              <h3>Бизнес развивается постепенно</h3>
+              <p>Никто не требует бросать основной бизнес. Большинство предпринимателей начинают с <b>нескольких часов в неделю</b> — изучают систему, знакомятся с продуктом, начинают общаться с людьми.</p>
+            </div>
+          </div>
+
+          <div class="principle-card" data-delay="160">
+            <div class="p-num">3</div>
+            <div class="p-body">
+              <h3>Работает сила команды</h3>
+              <p>Самое большое отличие партнёрского бизнеса — это командная модель. Вы не работаете в одиночку. Когда рядом появляется команда, процессы начинают распределяться между людьми — именно поэтому такая модель может <b>постепенно масштабироваться.</b></p>
+            </div>
+          </div>
+
+          <div class="principle-card" data-delay="240">
+            <div class="p-num">4</div>
+            <div class="p-body">
+              <h3>Современные инструменты упрощают работу</h3>
+              <p>Сегодня многое можно делать онлайн: обучающие платформы, автоматические воронки, онлайн-презентации, цифровые инструменты для общения с командой. Многие начинают развивать это направление <b>без кардинального изменения своего графика.</b></p>
+            </div>
+          </div>
+
+          <div class="principle-card" data-delay="320">
+            <div class="p-num">5</div>
+            <div class="p-body">
+              <h3>Каждый выбирает свою скорость</h3>
+              <p>В партнёрском бизнесе нет одного правильного темпа. Кто-то начинает очень активно. Кто-то развивается спокойно и постепенно. Главное — понимать, что это <b>возможность, а не обязательство.</b></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7 ВОПРОСОВ ═══ -->
+  <section>
+    <div class="accordion" id="acc-7q">
+      <button class="acc-btn" onclick="toggleAcc('7q')">
+        <div class="acc-left">
+          <span class="acc-emoji">📝</span>
+          <span class="acc-title">7 вопросов, которые стоит задать себе перед вторым источником дохода</span>
+        </div>
+        <i class="acc-icon">▾</i>
+      </button>
+      <div class="acc-body" id="body-7q">
+        <p style="margin-bottom:16px">Мои дорогие, прежде чем рассматривать любую новую модель бизнеса, задайте себе несколько честных вопросов — <b>не для того, чтобы сразу принять решение,</b> а для того, чтобы лучше понять свою текущую ситуацию и свои цели.</p>
+        <p style="font-family:Arial,sans-serif;font-size:13px;color:var(--text-soft);margin-bottom:16px">Нажмите на вопрос, чтобы увидеть пояснение:</p>
+
+        <div class="questions-list">
+
+          <div class="q-item">
+            <div class="q-head" onclick="toggleQ(this)">
+              <div class="q-num">1</div>
+              <div class="q-text">Насколько мой доход зависит от моего личного участия?</div>
+              <i class="q-arr">›</i>
+            </div>
+            <div class="q-answer">
+              <p>Если вы перестанете работать на неделю или месяц — что произойдёт с доходом? Этот вопрос помогает понять, насколько бизнес <b>зависит от владельца.</b> Чем выше зависимость — тем актуальнее вторая модель.</p>
+            </div>
+          </div>
+
+          <div class="q-item">
+            <div class="q-head" onclick="toggleQ(this)">
+              <div class="q-num">2</div>
+              <div class="q-text">Можно ли масштабировать мой текущий бизнес без серьёзных вложений?</div>
+              <i class="q-arr">›</i>
+            </div>
+            <div class="q-answer">
+              <p>Иногда рост бизнеса требует значительных инвестиций. Но не всегда предприниматель хочет или может увеличивать финансовую нагрузку. Если масштаб без вложений сложен — <b>партнёрская модель может стать альтернативой.</b></p>
+            </div>
+          </div>
+
+          <div class="q-item">
+            <div class="q-head" onclick="toggleQ(this)">
+              <div class="q-num">3</div>
+              <div class="q-text">Есть ли у меня финансовая подушка безопасности?</div>
+              <i class="q-arr">›</i>
+            </div>
+            <div class="q-answer">
+              <p>Дополнительный источник дохода часто создаёт ощущение <b>большей стабильности и спокойствия.</b> Это не только деньги — это уверенность, что жизнь не остановится, если основной бизнес временно просядет.</p>
+            </div>
+          </div>
+
+          <div class="q-item">
+            <div class="q-head" onclick="toggleQ(this)">
+              <div class="q-num">4</div>
+              <div class="q-text">Хочу ли я в будущем работать меньше или более гибко?</div>
+              <i class="q-arr">›</i>
+            </div>
+            <div class="q-answer">
+              <p>Не обязательно полностью уходить из бизнеса. Но иногда хочется иметь больше свободы: путешествовать, проводить время с семьёй, заниматься новыми проектами. <b>Именно эту свободу и создаёт система пассивного дохода.</b></p>
+            </div>
+          </div>
+
+          <div class="q-item">
+            <div class="q-head" onclick="toggleQ(this)">
+              <div class="q-num">5</div>
+              <div class="q-text">Готова ли я изучить новую модель бизнеса?</div>
+              <i class="q-arr">›</i>
+            </div>
+            <div class="q-answer">
+              <p>Любое новое направление требует времени на изучение. Но иногда достаточно просто понять систему, чтобы увидеть новые возможности. <b>Первый шаг — это разговор, а не решение.</b></p>
+            </div>
+          </div>
+
+          <div class="q-item">
+            <div class="q-head" onclick="toggleQ(this)">
+              <div class="q-num">6</div>
+              <div class="q-text">Есть ли у меня предпринимательское мышление?</div>
+              <i class="q-arr">›</i>
+            </div>
+            <div class="q-answer">
+              <p>Предприниматели обладают важными качествами: готовность принимать решения, ответственность, способность учиться новому, умение работать с людьми. <b>Эти навыки часто помогают быстрее освоить новую модель бизнеса.</b></p>
+            </div>
+          </div>
+
+          <div class="q-item">
+            <div class="q-head" onclick="toggleQ(this)">
+              <div class="q-num">7</div>
+              <div class="q-text">Что будет через 5–10 лет, если ничего не менять?</div>
+              <i class="q-arr">›</i>
+            </div>
+            <div class="q-answer">
+              <p>Пожалуй, самый важный вопрос. Если продолжать работать в той же модели, как будет выглядеть ваш бизнес и ваша жизнь через несколько лет? <b>Иногда именно этот вопрос помогает увидеть необходимость новых возможностей.</b></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ИСТОРИЯ ═══ -->
+  <section style="padding-bottom:8px">
+    <p class="sec-title">Немного моей истории</p>
+    <div class="story-card">
+      <div class="story-top">
+        <img class="story-photo" src="Елена Новикова.jpg" alt="Елена Новикова">
+        <div class="story-text-col">
+          <h2>Я прошла этот путь сама</h2>
+          <p>Мои дорогие, я прекрасно понимаю предпринимателей — потому что сама прошла этот путь.</p>
+        </div>
+      </div>
+      <p>Когда-то я работала <b>юрисконсультом в Управлении торговли.</b> Карьера складывалась успешно, но жизнь сложилась так, что мне пришлось часто переезжать. И тогда я задумалась: какой бизнес можно построить так, чтобы он не зависел от одного места.</p>
+      <p>Однажды я увидела объявление о курсах имиджмейкеров в Москве. Я поехала учиться — и это стало началом нового этапа. Я открыла свою <b>имидж-студию</b>, работала с женщинами, помогала им раскрывать свою красоту и уверенность.</p>
+      <p>Но со временем я поняла: даже успешный бизнес может требовать очень много личного времени. И именно тогда я впервые познакомилась с партнёрской моделью бизнеса.</p>
+      <p>Сначала было много вопросов. Но постепенно я увидела главное — это не хаос, это <b>система: обучения, информирования, мотивации, автоматизации, рекрутинга.</b></p>
+      <div class="story-stats">
+        <div class="stat-box">
+          <div class="stat-num">10 000+</div>
+          <div class="stat-label">человек в структуре</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">12 млн ₽</div>
+          <div class="stat-label">товарооборот в месяц</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">🌍</div>
+          <div class="stat-label">команда по всей России и СНГ</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">✈️</div>
+          <div class="stat-label">путешествия и свобода</div>
+        </div>
+      </div>
+      <p style="margin-top:14px;font-family:Arial,sans-serif;font-size:13.5px;color:var(--text-soft)">Я путешествовала по миру благодаря этому бизнесу:</p>
+      <div class="travel-row">
+        <span class="travel-tag">Малайзия</span>
+        <span class="travel-tag">Сингапур</span>
+        <span class="travel-tag">Бразилия</span>
+        <span class="travel-tag">Доминикана</span>
+        <span class="travel-tag">Шри-Ланка</span>
+        <span class="travel-tag">и другие страны</span>
+      </div>
+      <p style="margin-top:14px;font-family:'Georgia',serif;font-size:14px;color:var(--coral-dark);font-style:italic">Но самое главное для меня — не цифры и не статус. Самое ценное — видеть, как растут люди рядом. Как женщины покупают свои дома, машины, квартиры. Как их имена звучат со сцены.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 5 МИФОВ ═══ -->
+  <section>
+    <div class="accordion" id="acc-myths">
+      <button class="acc-btn" onclick="toggleAcc('myths')">
+        <div class="acc-left">
+          <span class="acc-emoji">🔍</span>
+          <span class="acc-title">5 мифов о сетевом бизнесе, в которые до сих пор верят</span>
+        </div>
+        <i class="acc-icon">▾</i>
+      </button>
+      <div class="acc-body" id="body-myths">
+        <p style="margin-bottom:16px">Когда предприниматели впервые слышат о партнёрском бизнесе, у них часто возникают сомнения. И это абсолютно нормально. Большинство из них связано со старыми представлениями. Давайте честно посмотрим на самые распространённые:</p>
+
+        <div class="myth">
+          <div class="myth-q" onclick="toggleMyth(this)">
+            <span class="myth-badge">Миф 1</span>
+            «Это несерьёзный бизнес»
+            <i class="myth-icon">+</i>
+          </div>
+          <div class="myth-a">
+            Многие считают, что сетевой бизнес — это что-то временное или нестабильное. Но если посмотреть на цифры крупных международных компаний, становится очевидно: <b>сетевой бизнес — это огромная индустрия с миллиардными оборотами.</b> И многие люди строят здесь долгосрочные карьеры.
+          </div>
+        </div>
+
+        <div class="myth">
+          <div class="myth-q" onclick="toggleMyth(this)">
+            <span class="myth-badge">Миф 2</span>
+            «Нужно постоянно что-то навязывать людям»
+            <i class="myth-icon">+</i>
+          </div>
+          <div class="myth-a">
+            Этот страх очень распространён. Но современные команды работают иначе. Сегодня акцент делается на рекомендациях, ценности продукта, личном бренде и обучении партнёров. <b>Когда человек сам верит в продукт и в систему, работа строится совсем по-другому.</b>
+          </div>
+        </div>
+
+        <div class="myth">
+          <div class="myth-q" onclick="toggleMyth(this)">
+            <span class="myth-badge">Миф 3</span>
+            «Это только для тех, кто умеет продавать»
+            <i class="myth-icon">+</i>
+          </div>
+          <div class="myth-a">
+            На самом деле многие успешные лидеры начинали без опыта продаж. Гораздо важнее умение работать с людьми, готовность учиться и системность. <b>Именно предприниматели часто обладают этими качествами.</b>
+          </div>
+        </div>
+
+        <div class="myth">
+          <div class="myth-q" onclick="toggleMyth(this)">
+            <span class="myth-badge">Миф 4</span>
+            «Там зарабатывают только те, кто пришёл раньше»
+            <i class="myth-icon">+</i>
+          </div>
+          <div class="myth-a">
+            Этот миф тоже часто звучит. Но любая развивающаяся компания постоянно открывает новые возможности. <b>Каждый год приходят новые лидеры, которые строят сильные команды.</b>
+          </div>
+        </div>
+
+        <div class="myth">
+          <div class="myth-q" onclick="toggleMyth(this)">
+            <span class="myth-badge">Миф 5</span>
+            «Это слишком сложно»
+            <i class="myth-icon">+</i>
+          </div>
+          <div class="myth-a">
+            На самом деле сложность любой модели бизнеса зависит от системы. Когда есть обучение, наставничество и готовые инструменты — <b>новая модель становится гораздо понятнее и легче для освоения.</b>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 ФОРМАТА — слайд слева ═══ -->
+  <section>
+    <p class="sec-title">3 формата, как можно начать знакомство с этой моделью</p>
+    <p style="font-family:Arial,sans-serif;font-size:14px;color:var(--text-soft);margin-bottom:16px">Мои дорогие, когда люди узнают о партнёрской модели, часто возникает вопрос: «А что дальше? Нужно сразу принимать решение?» Нет. Всё гораздо спокойнее и проще:</p>
+
+    <div class="formats" id="formats-block">
+
+      <div class="format-card" data-delay="0">
+        <div class="format-icon">💬</div>
+        <div class="format-body">
+          <div class="format-num">Формат 1</div>
+          <h3>Просто разобраться в системе</h3>
+          <p>Иногда человек хочет сначала понять: как работает модель, откуда формируется доход, какие шаги делают предприниматели на старте.</p>
+          <p>Для этого достаточно одного разговора, где можно спокойно посмотреть общую схему бизнеса.</p>
+          <div class="format-quote">«Теперь мне хотя бы понятно, о чём вообще идёт речь»</div>
+        </div>
+      </div>
+
+      <div class="format-card" data-delay="150">
+        <div class="format-icon">🤝</div>
+        <div class="format-body">
+          <div class="format-num">Формат 2</div>
+          <h3>Познакомиться с продуктом и командой</h3>
+          <p>Кому-то важно сначала увидеть: какой продукт лежит в основе бизнеса, какие ценности у команды, как строится работа.</p>
+          <p>Это помогает почувствовать атмосферу и понять, насколько комфортно человеку в такой среде.</p>
+        </div>
+      </div>
+
+      <div class="format-card" data-delay="300">
+        <div class="format-icon">🚀</div>
+        <div class="format-body">
+          <div class="format-num">Формат 3</div>
+          <h3>Начать аккуратно тестировать модель</h3>
+          <p>Некоторые предприниматели решают попробовать эту модель как дополнительное направление, не бросая основной бизнес. Они начинают постепенно: изучают систему, знакомятся с инструментами, делают первые шаги.</p>
+          <div class="format-quote">Самое главное — <b>здесь нет необходимости принимать решение сразу.</b></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ ПРИГЛАШЕНИЕ ═══ -->
+  <section style="padding-bottom:8px">
+    <div class="invite-block">
+      <div class="invite-icon">🎁</div>
+      <div class="invite-text">
+        <p>Иногда достаточно <b>просто разобраться в системе,</b> чтобы понять, интересна ли вам эта возможность.</p>
+        <p>Поэтому я приглашаю вас на короткий индивидуальный разбор — без давления и навязывания.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section>
+    <div class="cta-section">
+      <h2>Предприниматели принимают решения после того, как видят систему</h2>
+      <p>Поэтому я иногда провожу короткие разборы для предпринимателей. На разговоре мы смотрим:</p>
+      <ul class="cta-list">
+        <li>как устроена партнёрская модель дохода</li>
+        <li>простую схему масштабирования</li>
+        <li>как её можно аккуратно добавить к действующему бизнесу</li>
+        <li>какие первые шаги действительно работают.</li>
+      </ul>
+      <p class="cta-meta">Разговор занимает примерно 20–25 минут.</p>
+      <p>Если вам интересно посмотреть простую схему этой модели, напишите мне:</p>
+      <div class="cta-word">РАЗБОР</div>
+      <p>И я отправлю ссылку на созвон. А дальше вы спокойно решите — подходит ли вам такая модель бизнеса.</p>
+      <div class="cta-btns">
+        <a class="cta-btn cta-tg" href="https://t.me/ElenaNovikova_f" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Написать в Telegram
+        </a>
+        <a class="cta-btn cta-vk" href="https://vk.com/novikova_elena_raf" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.252.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
+          ВКонтакте
+        </a>
+      </div>
+      <div class="ps-block">
+        Многие предприниматели читают такие материалы из любопытства. Но иногда одна простая мысль остаётся в голове:<br>
+        <b>«А что если эта модель действительно может работать?»</b><br>
+        И единственный способ это понять — просто посмотреть систему.<br>
+        Иногда один разговор даёт больше понимания, чем недели размышлений.
+      </div>
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<!-- ═══════════════════ ПОДВАЛ ═══════════════════ -->
+<footer>
+  <div class="footer-socials">
+    <a class="soc-btn soc-tg" href="https://t.me/ElenaNovikova_f" target="_blank">
+      <span class="soc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span> Telegram
+    </a>
+    <a class="soc-btn soc-vk" href="https://vk.com/novikova_elena_raf" target="_blank">
+      <span class="soc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.252.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg></span> ВКонтакте
+    </a>
+  </div>
+  <p>© 2026 Елена Новикова &nbsp;|&nbsp;
+    <a href="https://t.me/ElenaNovikova_f">@ElenaNovikova_f</a>
+  </p>
+</footer>
+
+<script>
+// ─── ГЛАВНЫЙ АККОРДЕОН ────────────────────────────
+function toggleAcc(id){
+  const body = document.getElementById('body-'+id);
+  if(!body) return;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.acc-body').forEach(b=>b.classList.remove('open'));
+  document.querySelectorAll('.acc-btn').forEach(b=>b.classList.remove('open'));
+  if(!isOpen){
+    body.classList.add('open');
+    document.querySelectorAll('.acc-btn').forEach(b=>{
+      if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes(`'${id}'`))
+        b.classList.add('open');
+    });
+  }
+}
+
+// ─── 5 ПРИЧИН ─────────────────────────────────────
+function toggleReason(el){
+  const ans = el.nextElementSibling;
+  const isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.reason-a').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('.reason-q').forEach(q=>q.classList.remove('open'));
+  if(!isOpen){ ans.classList.add('open'); el.classList.add('open'); }
+}
+
+// ─── 5 МИФОВ ──────────────────────────────────────
+function toggleMyth(el){
+  const ans = el.nextElementSibling;
+  const isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.myth-a').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('.myth-q').forEach(q=>q.classList.remove('open'));
+  if(!isOpen){ ans.classList.add('open'); el.classList.add('open'); }
+}
+
+// ─── 7 ВОПРОСОВ ────────────────────────────────────
+function toggleQ(el){
+  const ans = el.nextElementSibling;
+  const isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.q-answer').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('.q-head').forEach(h=>h.classList.remove('open'));
+  if(!isOpen){ ans.classList.add('open'); el.classList.add('open'); }
+}
+
+// ─── АНИМАЦИЯ СХЕМЫ ──────────────────────────────
+function initScheme(){
+  setTimeout(()=>{
+    document.querySelectorAll('.scheme-step').forEach(step=>{
+      const delay = parseInt(step.dataset.delay)||0;
+      setTimeout(()=>step.classList.add('visible'), delay);
+    });
+  }, 100);
+}
+
+// ─── АНИМАЦИЯ ПРИНЦИПОВ ───────────────────────────
+function initPrinciples(){
+  setTimeout(()=>{
+    document.querySelectorAll('.principle-card').forEach(card=>{
+      const delay = parseInt(card.dataset.delay)||0;
+      setTimeout(()=>card.classList.add('visible'), delay);
+    });
+  }, 100);
+}
+
+// ─── INTERSECTION OBSERVER — СИГНАЛЫ ─────────────
+const signalsObserver = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.signal-card').forEach(card=>{
+        const delay = parseInt(card.dataset.delay)||0;
+        setTimeout(()=>card.classList.add('slide-in'), delay);
+      });
+      signalsObserver.disconnect();
+    }
+  });
+},{threshold:0.25});
+const signalsBlock = document.getElementById('signals-block');
+if(signalsBlock) signalsObserver.observe(signalsBlock);
+
+// ─── INTERSECTION OBSERVER — ФОРМАТЫ ─────────────
+const formatsObserver = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.format-card').forEach(card=>{
+        const delay = parseInt(card.dataset.delay)||0;
+        setTimeout(()=>card.classList.add('slide-in'), delay);
+      });
+      formatsObserver.disconnect();
+    }
+  });
+},{threshold:0.2});
+const formatsBlock = document.getElementById('formats-block');
+if(formatsBlock) formatsObserver.observe(formatsBlock);
+
+// ─── INTERSECTION OBSERVER — плавное появление ───
+const fadeObserver = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting) e.target.style.opacity='1'});
+},{threshold:0.12});
+document.querySelectorAll('.accordion,.story-card,.cta-section,.invite-block').forEach(el=>{
+  el.style.transition='opacity .5s ease';
+  el.style.opacity='0.05';
+  fadeObserver.observe(el);
+});
+</script>
+</body>
+</html>
