@@ -479,12 +479,6 @@
   .cta-tg:hover{background:#1a85bb;transform:translateY(-2px);box-shadow:0 6px 20px rgba(34,158,217,.4)}
   .cta-vk{background:#0077FF;color:#fff;border:2px solid #0077FF}
   .cta-vk:hover{background:#005fcc;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,119,255,.35)}
-  @media(max-width:600px){
-    .cta-section{flex-direction:column}
-    .cta-ghost-col{max-width:100%;height:220px}
-    .cta-text-col{padding:24px 18px}
-    .cta-btns{justify-content:center}
-  }
   /* ─── P.S. БЛОК ─────────────────────────────── */
   .ps-section{
     background:linear-gradient(135deg,#fdfaf8,var(--rose-card));
@@ -523,15 +517,33 @@
   @media(max-width:600px){
     header{padding:10px 14px}
     .logo{font-size:14px}
+    .logo-avatar{width:36px;height:36px}
     .soc-btn{padding:6px 10px;font-size:12px}
+    /* Герой: убрать большой padding-left, нормальный отступ */
     .hero{padding:40px 16px 36px}
+    .hero-bg-photo{opacity:.15;width:55%;height:auto}
+    .hero-sub{font-size:14px}
+    .hero-sub2{font-size:13px}
     .wrap{padding:0 12px}
     .intro-card,.story-card{padding:20px 18px}
     .story-stats{grid-template-columns:1fr}
+    /* Иконки-стрелки: чуть меньше на мобильном */
+    .acc-icon{font-size:22px}
+    .reason-icon,.myth-icon{font-size:20px}
+    .q-arr,.p-arrow{font-size:20px}
+    /* Аккордеон */
+    .acc-btn{padding:14px 16px}
     .acc-body.open{padding:16px 18px 20px}
-    .cta-section{padding:28px 18px}
+    /* Принципы: убрать большой padding-left */
+    .p-content.open{padding-left:18px}
+    /* CTA — колонки складываются вертикально */
+    .cta-section{flex-direction:column}
+    .cta-ghost-col{max-width:100%;height:220px}
+    .cta-text-col{padding:24px 18px}
+    .cta-ghost-photo{opacity:.18}
     .cta-btns{flex-direction:column;align-items:center}
     .signals-block,.formats{gap:8px}
+    footer{font-size:13px}
   }
 </style>
 </head>
