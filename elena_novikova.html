@@ -336,6 +336,21 @@
   .cta-vk{background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.6)}
   .cta-vk:hover{background:rgba(255,255,255,.3);transform:translateY(-2px)}
 
+  /* ─── ИЛЛЮСТРАЦИИ ───────────────────────────── */
+  .hero-illus-wrap{display:flex;justify-content:center;margin:22px 0 0;opacity:.9}
+  .illus-3icons{
+    display:flex;align-items:center;justify-content:center;
+    gap:8px;margin:20px 0 8px;padding:4px 8px;
+  }
+  .illus-icon-item{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
+  .illus-icon-item span{
+    font-family:Arial,sans-serif;font-size:10.5px;color:var(--text-soft);
+    line-height:1.35;max-width:68px;display:block;
+  }
+  .illus-arrow{flex-shrink:0;margin-top:-14px}
+  .cta-chat-illus{display:flex;justify-content:center;margin-bottom:18px}
+  @media(max-width:420px){.illus-arrow{display:none}.illus-3icons{gap:14px}}
+
   /* ─── ПОДВАЛ ─────────────────────────────────── */
   footer{
     text-align:center;padding:24px 16px 32px;margin-top:20px;
@@ -365,7 +380,7 @@
 <!-- ═══════════════════ ШАПКА ═══════════════════ -->
 <header>
   <div class="logo">
-    <img class="logo-avatar" src="Елена Новикова.jpg" alt="Елена Новикова">
+    <img class="logo-avatar" src="Лена Н1.jpg" alt="Елена Новикова">
     <div>
       Елена Новикова
       <span>Партнёрская модель бизнеса</span>
@@ -389,6 +404,33 @@
   <div class="hero-meta">
     <span>📖</span> Несколько минут чтения
   </div>
+  <!-- Иллюстрация: два источника дохода -->
+  <div class="hero-illus-wrap" aria-hidden="true">
+    <svg width="262" height="76" viewBox="0 0 262 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Левые бары — нестабильный доход -->
+      <rect x="4"  y="36" width="13" height="26" rx="3" fill="#e8c8c0"/>
+      <rect x="21" y="24" width="13" height="38" rx="3" fill="#e8c8c0"/>
+      <rect x="38" y="41" width="13" height="21" rx="3" fill="#e8c8c0"/>
+      <rect x="55" y="30" width="13" height="32" rx="3" fill="#e8c8c0"/>
+      <rect x="72" y="43" width="13" height="19" rx="3" fill="#e8c8c0"/>
+      <!-- Знак плюс по центру -->
+      <circle cx="131" cy="38" r="13" fill="white" stroke="#e8c8c0" stroke-width="1.5"/>
+      <line x1="125" y1="38" x2="137" y2="38" stroke="#c94d3a" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="131" y1="32" x2="131" y2="44" stroke="#c94d3a" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Правые бары — растущий доход -->
+      <rect x="164" y="55" width="13" height="7"  rx="3" fill="#e8927e"/>
+      <rect x="181" y="44" width="13" height="18" rx="3" fill="#c94d3a"/>
+      <rect x="198" y="32" width="13" height="30" rx="3" fill="#c94d3a"/>
+      <rect x="215" y="20" width="13" height="42" rx="3" fill="#2d4170"/>
+      <rect x="232" y="7"  width="13" height="55" rx="3" fill="#1a2744"/>
+      <!-- Стрелка вверх -->
+      <polyline points="248,14 252,8 256,14" stroke="#c94d3a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="252" y1="8" x2="252" y2="28" stroke="#c94d3a" stroke-width="2" stroke-linecap="round"/>
+      <!-- Подписи -->
+      <text x="45"  y="72" text-anchor="middle" font-size="9.5" fill="#8a9ab0" font-family="Arial,sans-serif">Один источник</text>
+      <text x="210" y="72" text-anchor="middle" font-size="9.5" fill="#1a2744" font-family="Arial,sans-serif" font-weight="700">Два источника</text>
+    </svg>
+  </div>
 </div>
 
 <!-- ═══════════════════ КОНТЕНТ ═══════════════════ -->
@@ -408,6 +450,54 @@
       </ul>
     </div>
   </section>
+
+  <!-- ИЛЛЮСТРАЦИЯ: 3 ключевых бизнес-инсайта -->
+  <div class="illus-3icons" aria-hidden="true">
+    <!-- Иконка 1: Часы — доход зависит от времени -->
+    <div class="illus-icon-item">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+        <circle cx="26" cy="26" r="23" fill="#faf6f2" stroke="#e8927e" stroke-width="1.8"/>
+        <circle cx="26" cy="26" r="15" fill="white" stroke="#e8c8c0" stroke-width="1"/>
+        <line x1="26" y1="16" x2="26" y2="26" stroke="#1a2744" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="26" y1="26" x2="34" y2="32" stroke="#c94d3a" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="26" cy="26" r="2.5" fill="#1a2744"/>
+      </svg>
+      <span>Доход зависит<br>от времени</span>
+    </div>
+    <!-- Стрелка -->
+    <svg class="illus-arrow" width="32" height="14" viewBox="0 0 32 14" fill="none">
+      <line x1="2" y1="7" x2="22" y2="7" stroke="#e8c8c0" stroke-width="2" stroke-dasharray="4 3"/>
+      <polyline points="18,3 24,7 18,11" fill="none" stroke="#e8927e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <!-- Иконка 2: Рост — требует вложений -->
+    <div class="illus-icon-item">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+        <circle cx="26" cy="26" r="23" fill="#fde8e3" stroke="#c94d3a" stroke-width="1.8"/>
+        <polyline points="12,38 20,28 28,34 40,18" stroke="#c94d3a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="35,15 40,18 37,23" stroke="#c94d3a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="12" y1="42" x2="40" y2="42" stroke="#e8927e" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span>Рост требует<br>вложений</span>
+    </div>
+    <!-- Стрелка -->
+    <svg class="illus-arrow" width="32" height="14" viewBox="0 0 32 14" fill="none">
+      <line x1="2" y1="7" x2="22" y2="7" stroke="#e8c8c0" stroke-width="2" stroke-dasharray="4 3"/>
+      <polyline points="18,3 24,7 18,11" fill="none" stroke="#e8927e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <!-- Иконка 3: Сеть — новая модель -->
+    <div class="illus-icon-item">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+        <circle cx="26" cy="26" r="23" fill="#1a2744"/>
+        <circle cx="26" cy="19" r="6" fill="white" opacity=".92"/>
+        <circle cx="15" cy="37" r="5" fill="#c94d3a"/>
+        <circle cx="37" cy="37" r="5" fill="#c94d3a"/>
+        <line x1="23" y1="24" x2="16" y2="33" stroke="white" stroke-width="1.8" opacity=".6"/>
+        <line x1="29" y1="24" x2="36" y2="33" stroke="white" stroke-width="1.8" opacity=".6"/>
+        <line x1="20" y1="37" x2="32" y2="37" stroke="#e8927e" stroke-width="1.5" opacity=".6"/>
+      </svg>
+      <span>Новая модель<br>рядом с вашей</span>
+    </div>
+  </div>
 
   <!-- АККОРДЕОН БЛОКИ -->
   <section>
@@ -633,6 +723,13 @@
       <div class="who-header">
         <span class="who-emoji">🎯</span>
         <h3 class="who-title">Кому особенно полезен этот разбор</h3>
+        <!-- Иллюстрация: мишень -->
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" style="margin-left:auto;flex-shrink:0" aria-hidden="true">
+          <circle cx="22" cy="22" r="20" stroke="#e8c8c0" stroke-width="2.2" fill="white"/>
+          <circle cx="22" cy="22" r="14" stroke="#e8927e" stroke-width="2.2" fill="#faf6f2"/>
+          <circle cx="22" cy="22" r="8"  stroke="#c94d3a" stroke-width="2.2" fill="#fde8e3"/>
+          <circle cx="22" cy="22" r="3"  fill="#c94d3a"/>
+        </svg>
       </div>
       <p class="who-sub">Этот разговор будет особенно полезен предпринимательницам, которые:</p>
       <ul class="who-list">
@@ -649,7 +746,7 @@
   <section style="padding-bottom:8px">
     <div class="story-card">
       <div class="story-top">
-        <img class="story-photo" src="Елена Новикова.jpg" alt="Елена Новикова">
+        <img class="story-photo" src="Лена Н1.jpg" alt="Елена Новикова">
         <div class="story-text-col">
           <h2>Немного моей истории</h2>
           <p>Я прекрасно понимаю предпринимателей — потому что сама прошла этот путь.</p>
@@ -683,6 +780,22 @@
     <div class="cta-section">
       <h2>Предприниматели принимают решения после того, как видят систему</h2>
       <p>Иногда достаточно одного разговора, чтобы понять: как может выглядеть вторая модель дохода именно в вашей ситуации. Напишите мне:</p>
+      <!-- Иллюстрация: диалог / разбор -->
+      <div class="cta-chat-illus" aria-hidden="true">
+        <svg width="86" height="50" viewBox="0 0 86 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Пузырь 1 (вопрос) -->
+          <rect x="1" y="1" width="48" height="28" rx="10" fill="rgba(255,255,255,.22)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+          <polygon points="10,29 6,44 22,29" fill="rgba(255,255,255,.22)"/>
+          <circle cx="16" cy="15" r="3.2" fill="white" opacity=".75"/>
+          <circle cx="25" cy="15" r="3.2" fill="white" opacity=".75"/>
+          <circle cx="34" cy="15" r="3.2" fill="white" opacity=".75"/>
+          <!-- Пузырь 2 (ответ) -->
+          <rect x="36" y="15" width="48" height="28" rx="10" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+          <polygon points="74,43 80,43 66,28" fill="rgba(255,255,255,.15)"/>
+          <rect x="44" y="25" width="32" height="3" rx="1.5" fill="white" opacity=".5"/>
+          <rect x="44" y="32" width="22" height="3" rx="1.5" fill="white" opacity=".4"/>
+        </svg>
+      </div>
       <div class="cta-word">РАЗБОР</div>
       <p>На созвоне я покажу простую схему — и вы спокойно решите, подходит ли вам эта модель.</p>
       <div class="cta-btns">

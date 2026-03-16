@@ -419,11 +419,34 @@
     padding:3px 12px;
   }
 
+  /* ─── ФОН-ФОТО ──────────────────────────────── */
+  .hero-bg-photo{
+    position:absolute;right:0;bottom:0;
+    height:108%;width:auto;
+    object-fit:cover;object-position:top center;
+    opacity:.11;pointer-events:none;user-select:none;
+    z-index:0;
+  }
+  .hero-tag,.hero h1,.hero-sub,.hero-sub2,.hero-meta{position:relative;z-index:1}
+  .cta-bg-photo{
+    position:absolute;right:0;top:0;
+    height:100%;width:auto;
+    object-fit:cover;object-position:top center;
+    opacity:.18;pointer-events:none;user-select:none;
+    mix-blend-mode:overlay;z-index:0;
+  }
+  .cta-section h2,.cta-section p,.cta-list,.cta-meta,.cta-word,.cta-btns{position:relative;z-index:1}
+  @media(max-width:600px){
+    .hero-bg-photo{opacity:.07;width:55%;height:auto}
+    .cta-bg-photo{opacity:.12;width:50%;height:auto}
+  }
+
   /* ─── CTA ────────────────────────────────────── */
   .cta-section{
     background:linear-gradient(135deg,var(--coral) 0%,var(--coral-dark) 100%);
     border-radius:20px;padding:40px 28px;text-align:center;margin:32px 0 0;
     box-shadow:0 8px 32px rgba(217,97,74,.35);
+    position:relative;overflow:hidden;
   }
   .cta-section h2{font-size:22px;color:#fff;margin-bottom:12px;line-height:1.35}
   .cta-section p{font-family:Arial,sans-serif;font-size:14.5px;color:rgba(255,255,255,.88);margin-bottom:16px}
@@ -508,7 +531,7 @@
 <!-- ═══════════════════ ШАПКА ═══════════════════ -->
 <header>
   <div class="logo">
-    <img class="logo-avatar" src="Елена Новикова.jpg" alt="Елена Новикова">
+    <img class="logo-avatar" src="Лена Н1.jpg" alt="Елена Новикова">
     <div>
       Елена Новикова
       <span>Практический бизнес-разбор</span>
@@ -526,6 +549,7 @@
 
 <!-- ═══════════════════ HERO ═══════════════════ -->
 <div class="hero">
+  <img class="hero-bg-photo" src="Лена Н1.jpg" alt="">
   <div class="hero-tag">Полный гайд для предпринимательниц</div>
   <h1>Если ваш бизнес остановится на месяц —<br><em>что станет с доходом?</em></h1>
   <p class="hero-sub">Практический разбор о второй модели дохода для женщин-предпринимателей</p>
@@ -1015,7 +1039,7 @@
     <p class="sec-title">Немного моей истории</p>
     <div class="story-card">
       <div class="story-top">
-        <img class="story-photo" src="Елена Новикова.jpg" alt="Елена Новикова">
+        <img class="story-photo" src="Лена Н1.jpg" alt="Елена Новикова">
         <div class="story-text-col">
           <h2>Я прошла этот путь сама</h2>
           <p>Я прекрасно понимаю предпринимателей — потому что сама прошла этот путь.</p>
@@ -1183,6 +1207,7 @@
   <!-- ═══ CTA ═══ -->
   <section>
     <div class="cta-section">
+      <img class="cta-bg-photo" src="ЛенаН2.jpg" alt="">
       <h2>Предприниматели принимают решения после того, как видят систему</h2>
       <p>Поэтому я иногда провожу короткие разборы для предпринимателей. На разговоре мы смотрим:</p>
       <ul class="cta-list">
