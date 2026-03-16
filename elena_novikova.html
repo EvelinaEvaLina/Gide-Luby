@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Елена Новикова — Второй источник дохода</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --rose-bg:#fde8e3;
@@ -19,7 +20,8 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{background:var(--rose-bg);font-family:'Georgia',serif;color:var(--text);line-height:1.7}
+  body{background:var(--rose-bg);font-family:'Lato',Arial,sans-serif;color:var(--text);line-height:1.7}
+  h1,h2,h3,.logo,.sec-title,.acc-title,.story-card h2,.test-title,.cta-section h2{font-family:'Playfair Display',Georgia,serif}
 
   /* ─── ШАПКА ─────────────────────────────────── */
   header{
@@ -391,7 +393,7 @@
   <section>
     <div class="intro-card">
       <h2>Всего несколько минут — и вот что вы узнаете:</h2>
-      <p>Мои дорогие, этот гайд написан коротко и по делу — чтобы вы спокойно посмотрели на одну интересную модель дохода, о которой сегодня всё чаще задумываются предприниматели.</p>
+      <p>Привет! С вами Елена Новикова. Этот гайд написан коротко и по делу — чтобы вы спокойно посмотрели на одну интересную модель дохода, о которой сегодня всё чаще задумываются предприниматели.</p>
       <ul class="check-list">
         <li>Почему доход большинства бизнесов зависит от владельца</li>
         <li>В какой момент предприниматели начинают искать <b>вторую модель дохода</b></li>
@@ -464,7 +466,7 @@
             </div>
           </div>
 
-          <button class="test-btn" onclick="showResult()">Узнать результат →</button>
+          <button class="test-btn" id="test-submit-btn" onclick="showResult()">Узнать результат →</button>
 
           <div class="test-result" id="test-result">
             <div class="res-inner">
@@ -606,7 +608,7 @@
             <i class="obj-icon">+</i>
           </div>
           <div class="obj-a">
-            Раньше эту модель часто показывали неправильно. Но факты говорят сами за себя: <b>более 10 000 человек в структуре</b>, товарооборот <b>более 12 млн рублей в месяц</b>.
+            Раньше эту модель часто показывали неправильно. Но факты говорят сами за себя: <b>более 12 000 человек в структуре</b>, товарооборот <b>более 16 млн рублей в месяц</b>.
           </div>
         </div>
       </div>
@@ -645,18 +647,18 @@
         <img class="story-photo" src="Елена Новикова.jpg" alt="Елена Новикова">
         <div class="story-text-col">
           <h2>Немного моей истории</h2>
-          <p>Мои дорогие, я прекрасно понимаю предпринимателей — потому что сама прошла этот путь.</p>
+          <p>Я прекрасно понимаю предпринимателей — потому что сама прошла этот путь.</p>
         </div>
       </div>
       <p>Я начинала как юрисконсульт, потом открыла собственную <b>имидж-студию</b>. Я прекрасно знаю, что такое аренда, сотрудники, ответственность и работа без выходных.</p>
       <p>Но в какой-то момент я поняла: <b>масштабировать доход можно по-другому.</b> Так я познакомилась с партнёрской моделью бизнеса.</p>
       <div class="story-stats">
         <div class="stat-box">
-          <div class="stat-num">10 000+</div>
+          <div class="stat-num">12 000+</div>
           <div class="stat-label">человек в структуре</div>
         </div>
         <div class="stat-box">
-          <div class="stat-num">12 млн ₽</div>
+          <div class="stat-num">16 млн ₽</div>
           <div class="stat-label">товарооборот в месяц</div>
         </div>
         <div class="stat-box">
@@ -769,7 +771,9 @@ function showResult(){
     cta.innerHTML = 'Давайте познакомимся — напишите мне в Telegram!';
   }
   res.classList.add('show');
-  res.scrollIntoView({behavior:'smooth', block:'nearest'});
+  const btn = document.getElementById('test-submit-btn');
+  if(btn) btn.style.display='none';
+  setTimeout(()=>res.scrollIntoView({behavior:'smooth', block:'nearest'}), 100);
 }
 
 // ─── АНИМАЦИЯ СХЕМЫ ──────────────────────────────
