@@ -140,7 +140,7 @@
   .acc-left{display:flex;align-items:center;gap:14px}
   .acc-emoji{font-size:22px;min-width:30px}
   .acc-title{font-size:16px;font-weight:bold;color:var(--navy);transition:color .2s;font-family:'Montserrat',sans-serif}
-  .acc-icon{font-size:20px;color:var(--coral);transition:transform .3s,color .2s;font-style:normal}
+  .acc-icon{font-size:28px;color:var(--coral);transition:transform .3s,color .2s;font-style:normal;line-height:1}
   .acc-body{
     background:var(--white);border-radius:0 0 14px 14px;
     max-height:0;overflow:hidden;transition:max-height .45s ease,padding .3s;
@@ -239,7 +239,7 @@
     display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-right:12px;
   }
   .reason-title{font-size:15px;font-weight:bold;color:var(--text);flex:1}
-  .reason-icon{font-size:18px;color:var(--coral);transition:transform .3s;font-style:normal;margin-left:10px}
+  .reason-icon{font-size:26px;color:var(--coral);transition:transform .3s;font-style:normal;margin-left:10px;line-height:1;font-weight:bold}
   .reason-q.open .reason-icon{transform:rotate(45deg)}
   .reason-a{
     max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;
@@ -264,8 +264,8 @@
   }
   .p-title{flex:1;font-size:15px;font-weight:bold;color:var(--text);font-family:'Montserrat',sans-serif;line-height:1.3}
   .p-arrow{
-    font-size:17px;color:var(--coral);
-    transition:transform .35s ease;font-style:normal;flex-shrink:0;
+    font-size:24px;color:var(--coral);
+    transition:transform .35s ease;font-style:normal;flex-shrink:0;line-height:1;
   }
   .p-header.open .p-arrow{transform:rotate(180deg)}
   .p-content{
@@ -304,7 +304,7 @@
     transition:all .2s;
   }
   .q-text{font-family:'Montserrat',sans-serif;font-size:14.5px;font-weight:bold;color:var(--text);flex:1;transition:color .2s}
-  .q-arr{font-size:16px;color:var(--coral);transition:transform .3s,color .2s;font-style:normal}
+  .q-arr{font-size:24px;color:var(--coral);transition:transform .3s,color .2s;font-style:normal;line-height:1}
   .q-answer{
     max-height:0;overflow:hidden;
     transition:max-height .35s ease,padding .25s;
@@ -326,7 +326,7 @@
     transition:background .2s;font-family:Arial,sans-serif;
   }
   .myth-q:hover{background:var(--rose-card)}
-  .myth-q .myth-icon{font-size:18px;color:var(--coral);transition:transform .3s;font-style:normal;margin-left:10px;flex-shrink:0}
+  .myth-q .myth-icon{font-size:26px;color:var(--coral);transition:transform .3s;font-style:normal;margin-left:10px;flex-shrink:0;line-height:1;font-weight:bold}
   .myth-q.open{background:var(--rose-card)}
   .myth-q.open .myth-icon{transform:rotate(45deg)}
   .myth-badge{
@@ -429,8 +429,8 @@
   }
   .hero-tag,.hero h1,.hero-sub,.hero-sub2,.hero-meta{position:relative;z-index:1}
   .cta-bg-photo{
-    position:absolute;right:0;bottom:0;
-    height:140%;width:auto;
+    position:absolute;right:0;top:-10px;
+    height:115%;width:auto;
     object-fit:cover;object-position:top center;
     opacity:.30;pointer-events:none;user-select:none;
     z-index:0;
@@ -590,7 +590,7 @@
           <span class="acc-emoji">🤔</span>
           <span class="acc-title">Сначала один честный вопрос</span>
         </div>
-        <i class="acc-icon">▾</i>
+        <i class="acc-icon">▼</i>
       </button>
       <div class="acc-body" id="body-q1">
         <p>Давайте начнём с очень простого, но важного вопроса.</p>
@@ -633,7 +633,7 @@
           <span class="acc-emoji">💡</span>
           <span class="acc-title">Ловушка предпринимателя и 3 инсайта</span>
         </div>
-        <i class="acc-icon">▾</i>
+        <i class="acc-icon">▼</i>
       </button>
       <div class="acc-body" id="body-trap">
         <p>Когда доход перестаёт расти так быстро, как хотелось бы, предприниматели чаще всего делают одно и то же. Они пытаются <b>усилить существующую модель бизнеса.</b></p>
@@ -735,7 +735,7 @@
           <span class="acc-emoji">📊</span>
           <span class="acc-title">Простая схема второй модели дохода</span>
         </div>
-        <i class="acc-icon">▾</i>
+        <i class="acc-icon">▼</i>
       </button>
       <div class="acc-body" id="body-scheme">
         <p style="margin-bottom:18px">Чтобы было легче понять саму идею, покажу очень упрощённую схему:</p>
@@ -795,7 +795,7 @@
           <span class="acc-emoji">🎯</span>
           <span class="acc-title">5 причин, почему предприниматели рассматривают эту модель</span>
         </div>
-        <i class="acc-icon">▾</i>
+        <i class="acc-icon">▼</i>
       </button>
       <div class="acc-body" id="body-reasons">
         <p style="margin-bottom:14px">За последние годы я всё чаще замечаю одну тенденцию: к партнёрскому бизнесу приходят <b>уже состоявшиеся предприниматели.</b> И у этого есть несколько очень понятных причин.</p>
@@ -869,7 +869,7 @@
           <span class="acc-emoji">⚖️</span>
           <span class="acc-title">Как совмещать два бизнеса и не выгорать</span>
         </div>
-        <i class="acc-icon">▾</i>
+        <i class="acc-icon">▼</i>
       </button>
       <div class="acc-body" id="body-combine">
         <p style="margin-bottom:6px">Один из самых частых вопросов, который мне задают предприниматели:</p>
@@ -946,7 +946,7 @@
           <span class="acc-emoji">📝</span>
           <span class="acc-title">7 вопросов, которые стоит задать себе перед вторым источником дохода</span>
         </div>
-        <i class="acc-icon">▾</i>
+        <i class="acc-icon">▼</i>
       </button>
       <div class="acc-body" id="body-7q">
         <p style="margin-bottom:16px">Прежде чем рассматривать любую новую модель бизнеса, задайте себе несколько честных вопросов — <b>не для того, чтобы сразу принять решение,</b> а для того, чтобы лучше понять свою текущую ситуацию и свои цели.</p>
@@ -1090,7 +1090,7 @@
           <span class="acc-emoji">🔍</span>
           <span class="acc-title">5 мифов о сетевом бизнесе, в которые до сих пор верят</span>
         </div>
-        <i class="acc-icon">▾</i>
+        <i class="acc-icon">▼</i>
       </button>
       <div class="acc-body" id="body-myths">
         <p style="margin-bottom:16px">Когда предприниматели впервые слышат о партнёрском бизнесе, у них часто возникают сомнения. И это абсолютно нормально. Большинство из них связано со старыми представлениями. Давайте честно посмотрим на самые распространённые:</p>
