@@ -128,6 +128,14 @@
   .acc-btn.open{background:var(--coral);border-radius:14px 14px 0 0;box-shadow:0 4px 18px rgba(217,97,74,.25)}
   .acc-btn.open .acc-title{color:#fff}
   .acc-btn.open .acc-icon{color:#fff;transform:rotate(180deg)}
+  /* Инвертированные кнопки: коралловые по умолчанию, белые при открытии */
+  .acc-btn-coral{background:var(--coral);box-shadow:0 2px 12px rgba(217,97,74,.25)}
+  .acc-btn-coral .acc-title{color:#fff}
+  .acc-btn-coral .acc-icon{color:#fff}
+  .acc-btn-coral:hover{background:var(--coral-dark);box-shadow:0 4px 18px rgba(217,97,74,.35)}
+  .acc-btn-coral.open{background:#fff;box-shadow:0 4px 18px rgba(217,97,74,.15)}
+  .acc-btn-coral.open .acc-title{color:var(--coral)}
+  .acc-btn-coral.open .acc-icon{color:var(--coral);transform:rotate(180deg)}
   .acc-left{display:flex;align-items:center;gap:14px}
   .acc-emoji{font-size:22px;min-width:30px}
   .acc-title{font-size:16px;font-weight:bold;color:var(--navy);transition:color .2s;font-family:'Montserrat',sans-serif}
@@ -584,7 +592,7 @@
   <!-- ═══ ЧАСТЬ 1: ЧЕСТНЫЙ ВОПРОС ═══ -->
   <section>
     <div class="accordion" id="acc-q1">
-      <button class="acc-btn" onclick="toggleAcc('q1')">
+      <button class="acc-btn acc-btn-coral" onclick="toggleAcc('q1')">
         <div class="acc-left">
           <span class="acc-emoji">🤔</span>
           <span class="acc-title">Сначала один честный вопрос</span>
@@ -627,7 +635,7 @@
   <!-- ═══ ЧАСТЬ 2: ЛОВУШКА + 3 ИНСАЙТА ═══ -->
   <section>
     <div class="accordion" id="acc-trap">
-      <button class="acc-btn" onclick="toggleAcc('trap')">
+      <button class="acc-btn acc-btn-coral" onclick="toggleAcc('trap')">
         <div class="acc-left">
           <span class="acc-emoji">💡</span>
           <span class="acc-title">Ловушка предпринимателя и 3 инсайта</span>
