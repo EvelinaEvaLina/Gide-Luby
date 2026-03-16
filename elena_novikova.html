@@ -116,19 +116,21 @@
   /* ─── АККОРДЕОН ─────────────────────────────── */
   .accordion{margin-bottom:10px}
   .acc-btn{
-    width:100%;background:var(--white);border:none;border-radius:14px;
+    width:100%;background:var(--coral);border:none;border-radius:14px;
     padding:18px 22px;display:flex;align-items:center;justify-content:space-between;
     cursor:pointer;text-align:left;
-    box-shadow:0 2px 12px rgba(217,97,74,.09);
+    box-shadow:0 2px 12px rgba(217,97,74,.18);
     transition:all .25s;
   }
-  .acc-btn:hover{background:var(--rose-card);box-shadow:0 4px 18px rgba(217,97,74,.15)}
+  .acc-btn .acc-title{color:#fff}
+  .acc-btn .acc-icon{color:#fff}
+  .acc-btn:hover{background:var(--coral-dark);box-shadow:0 4px 18px rgba(217,97,74,.25)}
   .acc-btn.open{
-    background:var(--coral);border-radius:14px 14px 0 0;
-    box-shadow:0 4px 18px rgba(217,97,74,.25);
+    background:var(--white);border-radius:14px 14px 0 0;
+    box-shadow:0 4px 18px rgba(217,97,74,.15);
   }
-  .acc-btn.open .acc-title{color:#fff}
-  .acc-btn.open .acc-icon{color:#fff;transform:rotate(180deg)}
+  .acc-btn.open .acc-title{color:var(--navy)}
+  .acc-btn.open .acc-icon{color:var(--coral);transform:rotate(180deg)}
   .acc-left{display:flex;align-items:center;gap:14px}
   .acc-emoji{font-size:22px;min-width:30px}
   .acc-title{font-size:16px;font-weight:bold;color:var(--navy);transition:color .2s;font-family:'Playfair Display',Georgia,serif}
