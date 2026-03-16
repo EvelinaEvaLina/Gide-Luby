@@ -435,50 +435,44 @@
   /* ─── CTA ────────────────────────────────────── */
   .cta-section{
     background:linear-gradient(135deg, #fdf6f3 0%, #faeae4 50%, #f5ddd5 100%);
-    border-radius:20px;margin:32px 0 0;
+    border-radius:20px;padding:40px 28px;text-align:center;margin:32px 0 0;
     box-shadow:0 4px 24px rgba(217,97,74,.15);
     border:1.5px solid var(--rose-mid);
-    overflow:hidden;display:flex;align-items:stretch;
-  }
-  /* Левая колонка — призрак-фото */
-  .cta-ghost-col{
-    flex:0 0 36%;position:relative;overflow:hidden;min-height:280px;
-    background:linear-gradient(135deg,#f5e8e3,#edddd5);
+    position:relative;overflow:hidden;
   }
   .cta-ghost-photo{
-    position:absolute;top:0;left:0;
-    width:100%;height:100%;
+    position:absolute;left:0;top:0;
+    height:100%;width:auto;
     object-fit:cover;object-position:center top;
-    opacity:.22;pointer-events:none;
+    opacity:.22;pointer-events:none;user-select:none;z-index:0;
+    /* плавное затухание вправо, чтобы текст читался */
+    -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,.9) 0%,rgba(0,0,0,.5) 45%,rgba(0,0,0,0) 75%);
+    mask-image:linear-gradient(to right,rgba(0,0,0,.9) 0%,rgba(0,0,0,.5) 45%,rgba(0,0,0,0) 75%);
   }
-  /* Правая колонка — текст */
-  .cta-text-col{
-    flex:1;padding:36px 28px;
-    display:flex;flex-direction:column;align-items:flex-start;
-  }
-  .cta-section h2{font-size:21px;color:var(--navy);margin-bottom:12px;line-height:1.35}
-  .cta-section p{font-family:Arial,sans-serif;font-size:14px;color:var(--text-soft);margin-bottom:14px}
-  .cta-list{list-style:none;padding:0;margin:0 0 18px}
+  .cta-section h2,.cta-section p,.cta-list,.cta-meta,.cta-word,.cta-btns{position:relative;z-index:1}
+  .cta-section h2{font-size:22px;color:var(--navy);margin-bottom:12px;line-height:1.35}
+  .cta-section p{font-family:Arial,sans-serif;font-size:14.5px;color:var(--text-soft);margin-bottom:16px}
+  .cta-list{list-style:none;padding:0;text-align:left;max-width:400px;margin:0 auto 22px}
   .cta-list li{
-    font-family:Arial,sans-serif;font-size:13.5px;color:var(--text);
-    padding:4px 0 4px 24px;position:relative;
+    font-family:Arial,sans-serif;font-size:14px;color:var(--text);
+    padding:4px 0 4px 26px;position:relative;
   }
   .cta-list li::before{content:'✔';position:absolute;left:0;color:var(--coral);font-weight:bold}
   .cta-meta{
-    font-family:Arial,sans-serif;font-size:12.5px;
-    color:var(--text-soft);margin-bottom:14px;font-style:italic;
+    font-family:Arial,sans-serif;font-size:13px;
+    color:var(--text-soft);margin-bottom:20px;font-style:italic;
   }
   .cta-word{
     display:inline-block;background:var(--coral);
     border:2px solid var(--coral);border-radius:12px;
-    padding:8px 28px;font-size:22px;font-weight:bold;color:#fff;
-    letter-spacing:3px;margin-bottom:16px;
+    padding:10px 36px;font-size:24px;font-weight:bold;color:#fff;
+    letter-spacing:3px;margin-bottom:22px;
     box-shadow:0 4px 16px rgba(201,77,58,.35);
   }
-  .cta-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-start}
+  .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
   .cta-btn{
     display:flex;align-items:center;gap:8px;
-    padding:11px 20px;border-radius:30px;font-size:14px;font-weight:700;
+    padding:13px 26px;border-radius:30px;font-size:15px;font-weight:700;
     font-family:Arial,sans-serif;text-decoration:none;transition:all .25s;
   }
   .cta-tg{background:#229ED9;color:#fff}
@@ -486,9 +480,8 @@
   .cta-vk{background:#0077FF;color:#fff;border:2px solid #0077FF}
   .cta-vk:hover{background:#005fcc;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,119,255,.35)}
   @media(max-width:600px){
-    .cta-section{flex-direction:column}
-    .cta-ghost-col{flex:0 0 180px;min-height:180px}
-    .cta-text-col{padding:22px 18px}
+    .cta-section{padding:28px 18px}
+    .cta-ghost-photo{opacity:.10}
     .cta-btns{justify-content:center}
   }
   /* ─── P.S. БЛОК ─────────────────────────────── */
@@ -1222,34 +1215,28 @@
   <!-- ═══ CTA ═══ -->
   <section>
     <div class="cta-section">
-      <!-- Левая колонка: призрак-фото -->
-      <div class="cta-ghost-col">
-        <img class="cta-ghost-photo" src="Лена Н1.jpg" alt="">
-      </div>
-      <!-- Правая колонка: текст -->
-      <div class="cta-text-col">
-        <h2>Предприниматели принимают решения после того, как видят систему</h2>
-        <p>Поэтому я иногда провожу короткие разборы для предпринимателей. На разговоре мы смотрим:</p>
-        <ul class="cta-list">
-          <li>как устроена партнёрская модель дохода</li>
-          <li>простую схему масштабирования</li>
-          <li>как её можно аккуратно добавить к действующему бизнесу</li>
-          <li>какие первые шаги действительно работают.</li>
-        </ul>
-        <p class="cta-meta">Разговор занимает примерно 20–25 минут.</p>
-        <p>Если вам интересно посмотреть простую схему этой модели, напишите мне:</p>
-        <div class="cta-word">РАЗБОР</div>
-        <p>И я отправлю ссылку на созвон. А дальше вы спокойно решите — подходит ли вам такая модель бизнеса.</p>
-        <div class="cta-btns">
-          <a class="cta-btn cta-tg" href="https://t.me/ElenaNovikova_f" target="_blank">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-            Написать в Telegram
-          </a>
-          <a class="cta-btn cta-vk" href="https://vk.com/novikova_elena_raf" target="_blank">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.252.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
-            ВКонтакте
-          </a>
-        </div>
+      <img class="cta-ghost-photo" src="ЛенаН2.jpg" alt="">
+      <h2>Предприниматели принимают решения после того, как видят систему</h2>
+      <p>Поэтому я иногда провожу короткие разборы для предпринимателей. На разговоре мы смотрим:</p>
+      <ul class="cta-list">
+        <li>как устроена партнёрская модель дохода</li>
+        <li>простую схему масштабирования</li>
+        <li>как её можно аккуратно добавить к действующему бизнесу</li>
+        <li>какие первые шаги действительно работают.</li>
+      </ul>
+      <p class="cta-meta">Разговор занимает примерно 20–25 минут.</p>
+      <p>Если вам интересно посмотреть простую схему этой модели, напишите мне:</p>
+      <div class="cta-word">РАЗБОР</div>
+      <p>И я отправлю ссылку на созвон. А дальше вы спокойно решите — подходит ли вам такая модель бизнеса.</p>
+      <div class="cta-btns">
+        <a class="cta-btn cta-tg" href="https://t.me/ElenaNovikova_f" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Написать в Telegram
+        </a>
+        <a class="cta-btn cta-vk" href="https://vk.com/novikova_elena_raf" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.252.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
+          ВКонтакте
+        </a>
       </div>
     </div>
   </section>
