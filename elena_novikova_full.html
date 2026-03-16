@@ -421,11 +421,13 @@
 
   /* ─── ФОН-ФОТО ──────────────────────────────── */
   .hero-bg-photo{
-    position:absolute;right:0;bottom:0;
+    position:absolute;left:0;bottom:0;
     height:108%;width:auto;
     object-fit:cover;object-position:top center;
     opacity:.24;pointer-events:none;user-select:none;
     z-index:0;
+    -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,.9) 0%,rgba(0,0,0,.5) 50%,rgba(0,0,0,0) 80%);
+    mask-image:linear-gradient(to right,rgba(0,0,0,.9) 0%,rgba(0,0,0,.5) 50%,rgba(0,0,0,0) 80%);
   }
   .hero-tag,.hero h1,.hero-sub,.hero-sub2,.hero-meta{position:relative;z-index:1}
   @media(max-width:600px){
