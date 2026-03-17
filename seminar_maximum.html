@@ -332,6 +332,79 @@
     .gallery img:first-child{height:200px}
   }
 
+  /* ─── ОТЗЫВЫ ─────────────────────────────────── */
+  .review-acc{margin-bottom:10px}
+  .review-btn{
+    width:100%;
+    background:rgba(8,20,65,0.72);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:14px;
+    padding:16px 22px;
+    display:flex;align-items:center;gap:14px;
+    cursor:pointer;text-align:left;
+    transition:all .25s;color:var(--white);
+    font-family:'Montserrat',Arial,sans-serif;
+    backdrop-filter:blur(10px);
+  }
+  .review-btn:hover{background:rgba(8,20,65,0.88)}
+  .review-btn.open{
+    background:rgba(8,20,65,0.88);
+    border-color:var(--orange);
+    border-bottom-color:rgba(255,255,255,.12);
+    border-radius:14px 14px 0 0;
+  }
+  .review-avatar{
+    width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(135deg,var(--orange),var(--orange-light));
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;font-weight:800;flex-shrink:0;
+    box-shadow:0 3px 10px rgba(232,113,26,.4);
+  }
+  .review-name{font-size:15px;font-weight:700;flex:1}
+  .review-stars{font-size:14px;color:var(--orange-light);margin-top:2px;letter-spacing:1px}
+  .review-arr{
+    font-size:20px;flex-shrink:0;
+    transition:transform .3s;font-style:normal;
+    color:var(--orange-light);
+  }
+  .review-btn.open .review-arr{transform:rotate(180deg)}
+  .review-body{
+    background:rgba(8,20,65,0.72);
+    border:1px solid var(--orange);border-top:none;
+    border-radius:0 0 14px 14px;
+    max-height:0;overflow:hidden;
+    transition:max-height .4s ease,padding .3s;
+    backdrop-filter:blur(10px);
+  }
+  .review-body.open{max-height:600px;padding:20px 24px 22px}
+  .review-text{
+    font-size:14.5px;color:var(--soft);
+    line-height:1.75;
+    border-left:3px solid var(--orange);
+    padding-left:16px;
+  }
+  .review-quote{
+    display:block;
+    background:rgba(245,164,32,.12);
+    border-radius:10px;padding:12px 16px;
+    margin-top:14px;
+    font-size:14px;font-weight:700;color:var(--orange-light);
+    font-style:italic;
+  }
+  .opinion-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    margin-top:8px;
+  }
+  .opinion-tag{
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:30px;padding:8px 16px;
+    text-align:center;font-size:13.5px;font-weight:600;
+    color:var(--white);
+  }
+  .opinion-tag em{color:var(--orange-light);font-style:normal}
+  @media(max-width:480px){.opinion-grid{grid-template-columns:1fr}}
+
   /* ─── ПОДВАЛ ─────────────────────────────────── */
   footer{
     text-align:center;padding:36px 16px 44px;margin-top:52px;
@@ -510,6 +583,74 @@
     </div>
   </section>
 
+  <!-- ОТЗЫВЫ -->
+  <section>
+    <h2 class="sec-title">Что говорят <em>участники</em></h2>
+
+    <!-- Отзыв 1 -->
+    <div class="review-acc">
+      <button class="review-btn" onclick="toggleReview('r1')">
+        <div class="review-avatar">N</div>
+        <div style="flex:1">
+          <div class="review-name">Norida Zakerova</div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <i class="review-arr">▼</i>
+      </button>
+      <div class="review-body" id="review-r1">
+        <p class="review-text">Хочу выразить благодарность всем, кто организовал этот семинар. Низкий вам поклон. Семинар был очень чётко спланирован.<br><br>
+        Спасибо за знакомство — не смотря на то, что я другой нации, приняли меня как свою родную. Экскурсия была супер, красота.<br><br>
+        Мне понравилось выступление спикера — то, как он объяснял, как нужно общаться с людьми. Психолог Анжела — её слова так тронули моё сердце. Её девиз «я хочу стать причиной вашего успеха» — я буду им пользоваться.<br><br>
+        Я узнала, что мы не только команда, но и большая семья. Люблю вас всех ❤️
+        <span class="review-quote">«Спасибо за гостеприимство и дружбу 🥰»</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Отзыв 2 -->
+    <div class="review-acc">
+      <button class="review-btn" onclick="toggleReview('r2')">
+        <div class="review-avatar">С</div>
+        <div style="flex:1">
+          <div class="review-name">Светлана Крупина</div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <i class="review-arr">▼</i>
+      </button>
+      <div class="review-body" id="review-r2">
+        <p class="review-text">Всё очень, очень понравилось! Суперский Илья, суперские Сергей и Ольга! 🔥<br><br>
+        Открылось что-то новое в себе, появились желания, которых раньше боялась. Хочется бежать и делать то, чего раньше не делала.<br><br>
+        Хочу продолжить, стать профи в продажах, поработать с Ильей.
+        <span class="review-quote">«Огромное всем спасибо! Хочется продолжения 🙏»</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Мнения участников -->
+    <div class="review-acc">
+      <button class="review-btn" onclick="toggleReview('r3')">
+        <div class="review-avatar">💬</div>
+        <div style="flex:1">
+          <div class="review-name">Семинар глазами участников</div>
+          <div class="review-stars" style="color:var(--soft);font-size:12px">Общие впечатления</div>
+        </div>
+        <i class="review-arr">▼</i>
+      </button>
+      <div class="review-body" id="review-r3">
+        <div class="opinion-grid">
+          <div class="opinion-tag"><em>Честный</em> и открытый</div>
+          <div class="opinion-tag"><em>Меняющий</em> взгляд</div>
+          <div class="opinion-tag"><em>Дающий</em> решения</div>
+          <div class="opinion-tag"><em>Вдохновляющий</em></div>
+          <div class="opinion-tag"><em>Практический</em> тренинг</div>
+          <div class="opinion-tag"><em>Уникальный</em></div>
+          <div class="opinion-tag" style="grid-column:1/-1"><em>Озаряющий!!</em> ✨</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
   <!-- КОМУ ПОДХОДИТ -->
   <section>
     <h2 class="sec-title">Для кого этот тренинг?</h2>
@@ -579,6 +720,19 @@ function toggleProg(id) {
   const isOpen = body.classList.contains('open');
   document.querySelectorAll('.prog-body').forEach(b => b.classList.remove('open'));
   document.querySelectorAll('.prog-btn').forEach(b => b.classList.remove('open'));
+  if (!isOpen) {
+    body.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+
+// ─── АККОРДЕОН ОТЗЫВОВ ───────────────────────────
+function toggleReview(id) {
+  const body = document.getElementById('review-' + id);
+  const btn = body.previousElementSibling;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.review-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.review-btn').forEach(b => b.classList.remove('open'));
   if (!isOpen) {
     body.classList.add('open');
     btn.classList.add('open');
