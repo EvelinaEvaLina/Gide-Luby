@@ -325,7 +325,8 @@
     transition:transform .3s,box-shadow .3s;
   }
   .gallery img:hover{transform:scale(1.03);box-shadow:0 8px 24px rgba(0,0,0,.35)}
-  .gallery img:first-child{grid-column:1/-1;height:260px}
+  .gallery img:nth-child(1),.gallery img:nth-child(2){height:240px}
+  .gallery img:nth-child(1){grid-column:1;} .gallery img:nth-child(2){grid-column:2;}
   @media(max-width:500px){
     .gallery{grid-template-columns:1fr}
     .gallery img:first-child{height:200px}
@@ -498,6 +499,8 @@
   <section>
     <h2 class="sec-title">Атмосфера <em>наших встреч</em></h2>
     <div class="gallery">
+      <img src="тренинг1.jpg" alt="Семинар MAXIMUM">
+      <img src="тренинг2.jpg" alt="Семинар MAXIMUM">
       <img src="семинар4.jpg" alt="Семинар MAXIMUM">
       <img src="семинар1.jpg" alt="Семинар MAXIMUM">
       <img src="семинар2.jpg" alt="Семинар MAXIMUM">
