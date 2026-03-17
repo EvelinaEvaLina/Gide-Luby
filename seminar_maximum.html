@@ -8,15 +8,15 @@
 <style>
   :root {
     --blue-grad: linear-gradient(160deg, #92bce0 0%, #5a8fc4 30%, #2d5ca8 60%, #122c60 100%);
-    --blue-dark: #122c60;
-    --blue-mid: #2d5ca8;
-    --orange: #f5813a;
-    --orange-dark: #d6641e;
-    --orange-light: #ffb07a;
+    --blue-dark: #0f1f4e;
+    --blue-mid: #4a7cc9;
+    --orange: #e8711a;
+    --orange-dark: #c75c10;
+    --orange-light: #f5a420;
     --white: #ffffff;
-    --soft: rgba(255,255,255,.80);
-    --card: rgba(255,255,255,.10);
-    --card-border: rgba(255,255,255,.22);
+    --soft: rgba(255,255,255,.85);
+    --card: rgba(8,20,65,0.72);
+    --card-border: rgba(255,255,255,.25);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -29,9 +29,9 @@
 
   /* ─── ШАПКА ─────────────────────────────────── */
   header{
-    background:rgba(18,44,96,.88);
-    backdrop-filter:blur(10px);
-    border-bottom:2px solid var(--orange);
+    background:rgba(15,31,78,0.82);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.15);
     padding:12px 24px;
     display:flex;align-items:center;justify-content:space-between;
     position:sticky;top:0;z-index:100;
@@ -46,12 +46,14 @@
     letter-spacing:0;margin-left:8px;
   }
   .h-cta{
-    background:var(--orange);color:#fff;border:none;border-radius:24px;
+    background:linear-gradient(135deg,var(--orange),var(--orange-light));
+    color:#fff;border:none;border-radius:50px;
     padding:9px 22px;font-size:13px;font-weight:700;
     font-family:'Montserrat',Arial,sans-serif;
     cursor:pointer;text-decoration:none;transition:all .25s;
+    box-shadow:0 4px 16px rgba(232,113,26,.4);
   }
-  .h-cta:hover{background:var(--orange-dark);transform:translateY(-1px);box-shadow:0 4px 14px rgba(245,129,58,.45)}
+  .h-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,113,26,.55)}
 
   /* ─── HERO ───────────────────────────────────── */
   .hero{
@@ -98,17 +100,17 @@
   }
   .hero-topic em{color:var(--orange);font-style:normal}
   .hero-btn{
-    display:inline-block;
-    background:linear-gradient(135deg,var(--orange),var(--orange-dark));
+    display:inline-flex;align-items:center;gap:10px;
+    background:linear-gradient(135deg,var(--orange) 0%,var(--orange-light) 100%);
     color:#fff;font-size:18px;font-weight:800;
-    letter-spacing:1px;text-transform:uppercase;
-    padding:20px 56px;border-radius:40px;
+    letter-spacing:.5px;text-transform:uppercase;
+    padding:20px 56px;border-radius:50px;
     text-decoration:none;
-    box-shadow:0 8px 30px rgba(245,129,58,.55);
-    transition:all .25s;
+    box-shadow:0 6px 24px rgba(232,113,26,.5);
+    transition:all .2s;
     position:relative;z-index:1;
   }
-  .hero-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(245,129,58,.7)}
+  .hero-btn:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(232,113,26,.65)}
   .hero-note{font-size:13px;color:var(--soft);margin-top:12px}
 
   /* ─── ОБЁРТКА ────────────────────────────────── */
@@ -176,19 +178,21 @@
   .prog-acc{margin-bottom:12px}
   .prog-btn{
     width:100%;
-    background:rgba(255,255,255,.12);
-    border:1.5px solid rgba(255,255,255,.22);
+    background:rgba(8,20,65,0.72);
+    border:1px solid rgba(255,255,255,.25);
     border-radius:14px;
     padding:18px 22px;
     display:flex;align-items:center;gap:16px;
     cursor:pointer;text-align:left;
     transition:all .25s;color:var(--white);
     font-family:'Montserrat',Arial,sans-serif;
+    backdrop-filter:blur(10px);
   }
-  .prog-btn:hover{background:rgba(255,255,255,.20);transform:translateX(3px)}
+  .prog-btn:hover{background:rgba(8,20,65,0.88)}
   .prog-btn.open{
-    background:rgba(245,129,58,.22);
+    background:rgba(8,20,65,0.88);
     border-color:var(--orange);
+    border-bottom-color:rgba(255,255,255,.15);
     border-radius:14px 14px 0 0;
   }
   .prog-badge{
@@ -206,11 +210,12 @@
   }
   .prog-btn.open .prog-arr{transform:rotate(180deg)}
   .prog-body{
-    background:rgba(18,44,96,.55);
-    border:1.5px solid var(--orange);border-top:none;
+    background:rgba(8,20,65,0.72);
+    border:1px solid var(--orange);border-top:none;
     border-radius:0 0 14px 14px;
     max-height:0;overflow:hidden;
     transition:max-height .45s ease,padding .3s;
+    backdrop-filter:blur(10px);
   }
   .prog-body.open{max-height:900px;padding:0 0 24px}
   .prog-photo{
@@ -295,16 +300,16 @@
   .stage-lbl{font-size:12px;color:var(--soft);margin-top:4px}
   .price-note{font-size:13px;color:var(--soft);margin-bottom:28px;font-style:italic}
   .reg-btn{
-    display:inline-block;
-    background:linear-gradient(135deg,var(--orange),var(--orange-dark));
+    display:inline-flex;align-items:center;gap:10px;
+    background:linear-gradient(135deg,var(--orange) 0%,var(--orange-light) 100%);
     color:#fff;font-size:20px;font-weight:800;
-    letter-spacing:1px;text-transform:uppercase;
-    padding:22px 60px;border-radius:40px;
+    letter-spacing:.5px;text-transform:uppercase;
+    padding:22px 60px;border-radius:50px;
     text-decoration:none;
-    box-shadow:0 8px 32px rgba(245,129,58,.55);
-    transition:all .25s;
+    box-shadow:0 6px 24px rgba(232,113,26,.5);
+    transition:all .2s;
   }
-  .reg-btn:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(245,129,58,.75)}
+  .reg-btn:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(232,113,26,.7)}
   .reg-code{font-size:14px;color:var(--soft);margin-top:14px}
   .reg-code b{color:var(--orange-light)}
 
@@ -444,8 +449,7 @@
         <i class="prog-arr">▼</i>
       </button>
       <div class="prog-body" id="prog-d2">
-        <img class="prog-photo" src="семинар3.jpg" alt="Тренинг MAXIMUM">
-        <div class="prog-inner">
+        <div class="prog-inner" style="padding-top:22px">
           <p style="font-size:14px;color:var(--soft);margin-bottom:12px">Выстраиваем зрелые партнёрские отношения внутри команды.</p>
           <ul class="prog-list">
             <li>Модель Родитель–Взрослый–Дитя</li>
@@ -469,8 +473,7 @@
         <i class="prog-arr">▼</i>
       </button>
       <div class="prog-body" id="prog-d3">
-        <img class="prog-photo" src="семинар4.jpg" alt="Вдохновение MAXIMUM" style="object-position:center 30%">
-        <div class="prog-inner">
+        <div class="prog-inner" style="padding-top:22px">
           <div class="day3-items">
             <div class="day3-item">
               <span>🌊</span>
