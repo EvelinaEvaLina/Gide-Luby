@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Структурный семинар MAXIMUM 2026 — Ярославль</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-grad: linear-gradient(160deg, #92bce0 0%, #5a8fc4 30%, #2d5ca8 60%, #122c60 100%);
+    --blue-dark: #122c60;
+    --blue-mid: #2d5ca8;
+    --orange: #f5813a;
+    --orange-dark: #d6641e;
+    --orange-light: #ffb07a;
+    --white: #ffffff;
+    --soft: rgba(255,255,255,.80);
+    --card: rgba(255,255,255,.10);
+    --card-border: rgba(255,255,255,.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background: var(--blue-grad);
+    background-attachment: fixed;
+    font-family:'Montserrat',Arial,sans-serif;
+    color:var(--white); min-height:100vh;
+  }
+
+  /* ─── ШАПКА ─────────────────────────────────── */
+  header{
+    background:rgba(18,44,96,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:2px solid var(--orange);
+    padding:12px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    position:sticky;top:0;z-index:100;
+  }
+  .h-logo{
+    font-size:20px;font-weight:900;letter-spacing:2px;color:var(--white);
+    text-decoration:none;
+  }
+  .h-logo em{color:var(--orange);font-style:normal}
+  .h-logo span{
+    font-size:11px;font-weight:400;color:rgba(255,255,255,.55);
+    letter-spacing:0;margin-left:8px;
+  }
+  .h-cta{
+    background:var(--orange);color:#fff;border:none;border-radius:24px;
+    padding:9px 22px;font-size:13px;font-weight:700;
+    font-family:'Montserrat',Arial,sans-serif;
+    cursor:pointer;text-decoration:none;transition:all .25s;
+  }
+  .h-cta:hover{background:var(--orange-dark);transform:translateY(-1px);box-shadow:0 4px 14px rgba(245,129,58,.45)}
+
+  /* ─── HERO ───────────────────────────────────── */
+  .hero{
+    padding:72px 24px 64px;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;top:-80px;right:-80px;
+    width:340px;height:340px;border-radius:50%;
+    background:radial-gradient(circle,rgba(245,129,58,.22) 0%,transparent 70%);
+  }
+  .hero::after{
+    content:'';position:absolute;bottom:-60px;left:-60px;
+    width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle,rgba(245,129,58,.12) 0%,transparent 70%);
+  }
+  .hero-fire{font-size:52px;line-height:1;margin-bottom:18px}
+  .hero-tag{
+    display:inline-block;background:var(--orange);color:#fff;
+    font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+    padding:6px 22px;border-radius:24px;margin-bottom:20px;
+  }
+  .hero h1{
+    font-size:clamp(36px,8vw,72px);font-weight:900;
+    line-height:1.1;margin-bottom:6px;letter-spacing:-1px;
+  }
+  .hero h1 em{color:var(--orange);font-style:normal}
+  .hero-year{
+    font-size:clamp(52px,12vw,100px);font-weight:900;
+    color:rgba(255,255,255,.08);line-height:.9;
+    letter-spacing:-2px;margin-bottom:20px;display:block;
+  }
+  .hero-date{font-size:22px;font-weight:700;color:var(--orange-light);margin-bottom:8px;letter-spacing:1px}
+  .hero-place{font-size:16px;color:var(--soft);margin-bottom:30px}
+  .hero-topic{
+    display:inline-block;
+    background:rgba(255,255,255,.12);
+    border:1.5px solid rgba(255,255,255,.28);
+    border-radius:16px;padding:18px 30px;
+    font-size:18px;font-weight:700;
+    max-width:600px;line-height:1.5;
+    margin-bottom:40px;
+    font-style:italic;
+  }
+  .hero-topic em{color:var(--orange);font-style:normal}
+  .hero-btn{
+    display:inline-block;
+    background:linear-gradient(135deg,var(--orange),var(--orange-dark));
+    color:#fff;font-size:18px;font-weight:800;
+    letter-spacing:1px;text-transform:uppercase;
+    padding:20px 56px;border-radius:40px;
+    text-decoration:none;
+    box-shadow:0 8px 30px rgba(245,129,58,.55);
+    transition:all .25s;
+    position:relative;z-index:1;
+  }
+  .hero-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(245,129,58,.7)}
+  .hero-note{font-size:13px;color:var(--soft);margin-top:12px}
+
+  /* ─── ОБЁРТКА ────────────────────────────────── */
+  .wrap{max-width:800px;margin:0 auto;padding:0 16px}
+
+  /* ─── СЕКЦИЯ ─────────────────────────────────── */
+  section{padding:52px 0 0}
+  .sec-title{
+    font-size:clamp(19px,4vw,28px);font-weight:800;
+    text-align:center;margin-bottom:28px;
+  }
+  .sec-title em{color:var(--orange);font-style:normal}
+
+  /* ─── ВВОДНЫЙ БЛОК ───────────────────────────── */
+  .intro-card{
+    background:var(--card);border:1.5px solid var(--card-border);
+    border-radius:20px;padding:28px 30px;
+  }
+  .intro-card p{font-size:15px;color:var(--soft);margin-bottom:14px;line-height:1.7}
+  .intro-card p:last-child{margin:0}
+  .intro-accent{
+    margin-top:18px;padding:14px 20px;
+    background:rgba(245,129,58,.18);
+    border-left:4px solid var(--orange);
+    border-radius:0 12px 12px 0;
+    font-size:15px;font-weight:700;color:var(--orange-light);
+  }
+
+  /* ─── ТРЕНЕР ─────────────────────────────────── */
+  .trainer-card{
+    background:var(--card);border:1.5px solid var(--card-border);
+    border-radius:20px;padding:32px 28px;
+    display:flex;gap:28px;align-items:flex-start;
+  }
+  .trainer-photo{
+    flex-shrink:0;width:150px;height:150px;
+    border-radius:50%;object-fit:cover;
+    border:3px solid var(--orange);
+    box-shadow:0 4px 22px rgba(245,129,58,.4);
+  }
+  .trainer-info h2{font-size:22px;font-weight:800;margin-bottom:6px}
+  .trainer-badge{
+    display:inline-block;background:var(--orange);color:#fff;
+    font-size:11px;font-weight:700;padding:3px 12px;
+    border-radius:12px;letter-spacing:1px;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .trainer-list{list-style:none;padding:0}
+  .trainer-list li{
+    font-size:13.5px;color:var(--soft);
+    padding:5px 0 5px 24px;position:relative;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .trainer-list li:last-child{border:none}
+  .trainer-list li::before{
+    content:'▸';position:absolute;left:0;
+    color:var(--orange);font-size:15px;line-height:1.4;
+  }
+  @media(max-width:560px){
+    .trainer-card{flex-direction:column;align-items:center;text-align:center}
+    .trainer-list li{text-align:left}
+  }
+
+  /* ─── ПРОГРАММА (аккордеон) ──────────────────── */
+  .prog-acc{margin-bottom:12px}
+  .prog-btn{
+    width:100%;
+    background:rgba(255,255,255,.12);
+    border:1.5px solid rgba(255,255,255,.22);
+    border-radius:14px;
+    padding:18px 22px;
+    display:flex;align-items:center;gap:16px;
+    cursor:pointer;text-align:left;
+    transition:all .25s;color:var(--white);
+    font-family:'Montserrat',Arial,sans-serif;
+  }
+  .prog-btn:hover{background:rgba(255,255,255,.20);transform:translateX(3px)}
+  .prog-btn.open{
+    background:rgba(245,129,58,.22);
+    border-color:var(--orange);
+    border-radius:14px 14px 0 0;
+  }
+  .prog-badge{
+    flex-shrink:0;
+    background:var(--orange);color:#fff;
+    font-size:12px;font-weight:800;
+    padding:6px 12px;border-radius:10px;
+    text-align:center;line-height:1.35;white-space:nowrap;
+  }
+  .prog-label{font-size:16px;font-weight:800;flex:1}
+  .prog-arr{
+    font-size:22px;flex-shrink:0;
+    transition:transform .3s;font-style:normal;
+    color:var(--orange-light);
+  }
+  .prog-btn.open .prog-arr{transform:rotate(180deg)}
+  .prog-body{
+    background:rgba(18,44,96,.55);
+    border:1.5px solid var(--orange);border-top:none;
+    border-radius:0 0 14px 14px;
+    max-height:0;overflow:hidden;
+    transition:max-height .45s ease,padding .3s;
+  }
+  .prog-body.open{max-height:900px;padding:0 0 24px}
+  .prog-photo{
+    width:100%;max-height:240px;
+    object-fit:cover;object-position:center top;
+    border-bottom:2px solid rgba(245,129,58,.3);
+    margin-bottom:20px;display:block;
+  }
+  .prog-inner{padding:0 24px}
+  .prog-list{list-style:none;padding:0;margin:10px 0}
+  .prog-list li{
+    padding:6px 0 6px 24px;position:relative;
+    font-size:14px;color:var(--soft);
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .prog-list li:last-child{border:none}
+  .prog-list li::before{content:'—';position:absolute;left:0;color:var(--orange)}
+  .prog-task{
+    background:rgba(245,129,58,.18);
+    border-left:4px solid var(--orange);
+    border-radius:0 10px 10px 0;
+    padding:12px 16px;margin-top:16px;
+    font-size:14px;font-weight:700;
+    color:var(--orange-light);font-style:italic;
+  }
+  .day3-items{display:flex;flex-direction:column;gap:12px;margin:16px 0}
+  .day3-item{
+    display:flex;align-items:center;gap:14px;
+    background:rgba(255,255,255,.10);border-radius:12px;
+    padding:16px 20px;font-size:15px;font-weight:600;
+  }
+  .day3-item span:first-child{font-size:30px;flex-shrink:0}
+
+  /* ─── КОМУ ───────────────────────────────────── */
+  .who-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  }
+  .who-item{
+    background:var(--card);border:1px solid var(--card-border);
+    border-left:4px solid var(--orange);border-radius:12px;
+    padding:16px 18px;font-size:14px;color:var(--soft);
+    opacity:0;transform:translateX(-40px);
+    transition:all .5s ease;
+  }
+  .who-item.slide-in{opacity:1;transform:translateX(0)}
+  .who-item::before{content:'➖ ';color:var(--orange-light)}
+  @media(max-width:520px){.who-grid{grid-template-columns:1fr}}
+
+  /* ─── РЕЗУЛЬТАТЫ ─────────────────────────────── */
+  .results-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px}
+  .results-list li{
+    display:flex;align-items:flex-start;gap:14px;
+    background:var(--card);border:1px solid var(--card-border);
+    border-radius:14px;padding:16px 20px;
+    font-size:14.5px;line-height:1.55;
+  }
+  .results-list li::before{
+    content:'✔';color:var(--orange);
+    font-weight:bold;font-size:18px;flex-shrink:0;line-height:1.4;
+  }
+
+  /* ─── ЦЕНА ───────────────────────────────────── */
+  .price-card{
+    background:rgba(18,44,96,.65);
+    border:2px solid var(--orange);
+    border-radius:24px;padding:36px 30px;text-align:center;
+  }
+  .price-num{
+    font-size:56px;font-weight:900;color:var(--orange);
+    line-height:1;margin-bottom:6px;
+  }
+  .price-num span{font-size:30px}
+  .price-sub{font-size:14px;color:var(--soft);margin-bottom:28px}
+  .stages{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+  .stage{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:14px;padding:16px 22px;
+    text-align:center;min-width:160px;
+  }
+  .stage-sum{font-size:22px;font-weight:800;color:var(--orange-light)}
+  .stage-lbl{font-size:12px;color:var(--soft);margin-top:4px}
+  .price-note{font-size:13px;color:var(--soft);margin-bottom:28px;font-style:italic}
+  .reg-btn{
+    display:inline-block;
+    background:linear-gradient(135deg,var(--orange),var(--orange-dark));
+    color:#fff;font-size:20px;font-weight:800;
+    letter-spacing:1px;text-transform:uppercase;
+    padding:22px 60px;border-radius:40px;
+    text-decoration:none;
+    box-shadow:0 8px 32px rgba(245,129,58,.55);
+    transition:all .25s;
+  }
+  .reg-btn:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(245,129,58,.75)}
+  .reg-code{font-size:14px;color:var(--soft);margin-top:14px}
+  .reg-code b{color:var(--orange-light)}
+
+  /* ─── ГАЛЕРЕЯ ────────────────────────────────── */
+  .gallery{
+    display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    margin-top:0;
+  }
+  .gallery img{
+    width:100%;height:200px;object-fit:cover;
+    border-radius:14px;
+    border:1.5px solid rgba(255,255,255,.18);
+    transition:transform .3s,box-shadow .3s;
+  }
+  .gallery img:hover{transform:scale(1.03);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+  .gallery img:first-child{grid-column:1/-1;height:260px}
+  @media(max-width:500px){
+    .gallery{grid-template-columns:1fr}
+    .gallery img:first-child{height:200px}
+  }
+
+  /* ─── ПОДВАЛ ─────────────────────────────────── */
+  footer{
+    text-align:center;padding:36px 16px 44px;margin-top:52px;
+    border-top:1px solid rgba(255,255,255,.15);
+    font-size:13px;color:var(--soft);
+  }
+  .foot-logo{font-size:24px;font-weight:900;letter-spacing:2px;margin-bottom:8px}
+  .foot-logo em{color:var(--orange);font-style:normal}
+  footer a{color:var(--orange-light);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+
+  /* ─── RESPONSIVE ─────────────────────────────── */
+  @media(max-width:600px){
+    header{padding:10px 14px}
+    .h-logo{font-size:16px}
+    .h-cta{padding:7px 16px;font-size:12px}
+    .hero{padding:50px 16px 44px}
+    .hero-topic{font-size:15px;padding:14px 20px}
+    .prog-label{font-size:14px}
+    .price-num{font-size:42px}
+    .stages{flex-direction:column;align-items:center}
+    .reg-btn{padding:18px 40px;font-size:17px}
+    .intro-card{padding:20px 18px}
+    .price-card{padding:26px 18px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ ШАПКА ═══════════ -->
+<header>
+  <a class="h-logo" href="#">MAX<em>I</em>MUM<span>Семинар 2026</span></a>
+  <a class="h-cta" href="https://t.me/+JjHls3I3EcYyMGIy" target="_blank">Записаться</a>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<div class="hero">
+  <div class="hero-fire">🔥</div>
+  <div class="hero-tag">Структурный семинар команды</div>
+  <h1>MAXIMUM</h1>
+  <span class="hero-year">2026</span>
+  <div class="hero-date">9–11 июля · Ярославль</div>
+  <div class="hero-place">📍 Большой ежегодный семинар команды MAXIMUM</div>
+  <div class="hero-topic">«<em>Коммуникация лидера:</em><br>как вовлекать и удерживать людей»</div>
+  <a class="hero-btn" href="https://t.me/+JjHls3I3EcYyMGIy" target="_blank">ХОЧУ НА СЕМИНАР</a>
+  <div class="hero-note">Пиши «СЕМИНАР 2026» в чат команды MAXIMUM</div>
+</div>
+
+<!-- ═══════════ КОНТЕНТ ═══════════ -->
+<div class="wrap">
+
+  <!-- ПОЧЕМУ ЭТО ВАЖНО -->
+  <section>
+    <h2 class="sec-title">Почему <em>коммуникация</em> — это всё</h2>
+    <div class="intro-card">
+      <p>Можно знать маркетинг. Можно разбираться в акциях. Можно быть суперпродуктовым экспертом.</p>
+      <p>Но если ты не умеешь выстраивать коммуникацию и вовлекать в идею партнёрства — команда не растёт, люди не задерживаются, энергия утекает.</p>
+      <div class="intro-accent">Именно про это будет наш двухдневный глубокий тренинг.</div>
+    </div>
+  </section>
+
+  <!-- ТРЕНЕР -->
+  <section>
+    <h2 class="sec-title">Тренер семинара</h2>
+    <div class="trainer-card">
+      <img class="trainer-photo" src="тренер.jpg" alt="Илья Шмелёв">
+      <div class="trainer-info">
+        <h2>Илья Шмелёв</h2>
+        <div class="trainer-badge">Мастер-тренер ICU</div>
+        <ul class="trainer-list">
+          <li>PhD, кандидат психологических наук</li>
+          <li>Сертифицированный бизнес-тренер международной категории</li>
+          <li>Certified Professional Master and Trainer of Coaching</li>
+          <li>Certified Agile Professional</li>
+          <li>Старший преподаватель НИУ ВШЭ, МФТИ, курсов MBA</li>
+          <li>Соучредитель «Коучинг Центра» (Москва)</li>
+          <li>В профессии с 2004 года</li>
+          <li>Более 1200 тренингов в 10+ регионах России, СНГ и ЕС</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРОГРАММА -->
+  <section>
+    <h2 class="sec-title">Программа семинара</h2>
+
+    <!-- ДЕНЬ 1 -->
+    <div class="prog-acc">
+      <button class="prog-btn" onclick="toggleProg('d1')">
+        <div class="prog-badge">9 июля<br>День 1</div>
+        <span class="prog-label">Создание команды</span>
+        <i class="prog-arr">▼</i>
+      </button>
+      <div class="prog-body" id="prog-d1">
+        <div class="prog-inner" style="padding-top:22px">
+          <p style="font-size:14px;color:var(--soft);margin-bottom:12px">Всё внимание — на вовлечение новых партнёров.</p>
+          <ul class="prog-list">
+            <li>Разница между информированием и вовлечением</li>
+            <li>Как продавать бизнес-идею, а не только продукт</li>
+            <li>Конкретные приёмы вовлечения в команду новых партнёров</li>
+            <li>Работа с убеждениями лидера</li>
+            <li>Упражнения на коммуникацию с незнакомыми людьми</li>
+            <li>Практика выхода из позиции «Спасателя»</li>
+          </ul>
+          <div class="prog-task">Задача дня — понять, как создавать команду, а не просто структуру покупателей.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ДЕНЬ 2 -->
+    <div class="prog-acc">
+      <button class="prog-btn" onclick="toggleProg('d2')">
+        <div class="prog-badge">10 июля<br>День 2</div>
+        <span class="prog-label">Коммуникация внутри команды</span>
+        <i class="prog-arr">▼</i>
+      </button>
+      <div class="prog-body" id="prog-d2">
+        <img class="prog-photo" src="семинар3.jpg" alt="Тренинг MAXIMUM">
+        <div class="prog-inner">
+          <p style="font-size:14px;color:var(--soft);margin-bottom:12px">Выстраиваем зрелые партнёрские отношения внутри команды.</p>
+          <ul class="prog-list">
+            <li>Модель Родитель–Взрослый–Дитя</li>
+            <li>Как не входить в треугольник Карпмана</li>
+            <li>Работа с конфликтами</li>
+            <li>Конструктивные разборы</li>
+            <li>Управление мотивацией</li>
+            <li>Чёткие договорённости и границы</li>
+          </ul>
+          <div class="prog-task">Задача дня — выстроить зрелые партнёрские отношения внутри команды.</div>
+          <p style="margin-top:14px;font-size:13px;color:var(--orange-light)">☕️ Кофе-брейки — время живого общения и нетворкинга.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ДЕНЬ 3 -->
+    <div class="prog-acc">
+      <button class="prog-btn" onclick="toggleProg('d3')">
+        <div class="prog-badge">11 июля<br>День 3</div>
+        <span class="prog-label">День вдохновения</span>
+        <i class="prog-arr">▼</i>
+      </button>
+      <div class="prog-body" id="prog-d3">
+        <img class="prog-photo" src="семинар4.jpg" alt="Вдохновение MAXIMUM" style="object-position:center 30%">
+        <div class="prog-inner">
+          <div class="day3-items">
+            <div class="day3-item">
+              <span>🌊</span>
+              <span>Экскурсия-пикник по Волге с посещением монастыря</span>
+            </div>
+            <div class="day3-item">
+              <span>📸</span>
+              <span>Фотосессия — яркие воспоминания с командой</span>
+            </div>
+            <div class="day3-item">
+              <span>🤝</span>
+              <span>Живое общение, нетворкинг, энергия команды</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ГАЛЕРЕЯ -->
+  <section>
+    <h2 class="sec-title">Атмосфера <em>наших встреч</em></h2>
+    <div class="gallery">
+      <img src="семинар4.jpg" alt="Семинар MAXIMUM">
+      <img src="семинар1.jpg" alt="Семинар MAXIMUM">
+      <img src="семинар2.jpg" alt="Семинар MAXIMUM">
+      <img src="семинар3.jpg" alt="Семинар MAXIMUM">
+      <img src="семинар5.jpg" alt="Семинар MAXIMUM">
+    </div>
+  </section>
+
+  <!-- КОМУ ПОДХОДИТ -->
+  <section>
+    <h2 class="sec-title">Для кого этот тренинг?</h2>
+    <div class="who-grid" id="who-grid">
+      <div class="who-item" data-delay="0">Для лидеров, которые хотят создавать именно команду партнёров</div>
+      <div class="who-item" data-delay="100">Для развивающихся партнёров, готовых расти в лидерство</div>
+      <div class="who-item" data-delay="200">Для тех, кто устал «тащить всё на себе»</div>
+      <div class="who-item" data-delay="300">Для тех, кто хочет вовлекать в бизнес, а не уговаривать</div>
+      <div class="who-item" data-delay="400" style="grid-column:1/-1">Для тех, кто чувствует: мой следующий уровень — в коммуникации</div>
+    </div>
+  </section>
+
+  <!-- РЕЗУЛЬТАТЫ -->
+  <section>
+    <h2 class="sec-title">Что вы получите</h2>
+    <ul class="results-list">
+      <li>Осознаете свой стиль общения и сможете перейти в более взрослую позицию</li>
+      <li>Получите конкретные приёмы вовлечения в команду новых партнёров</li>
+      <li>Научитесь распознавать и останавливать психологические игры</li>
+      <li>Получите конкретные шаги по привлечению партнёров и работе с командой</li>
+      <li>Поймёте, как выстраивать долгосрочные партнёрские отношения</li>
+    </ul>
+  </section>
+
+  <!-- ЦЕНА И РЕГИСТРАЦИЯ -->
+  <section style="padding-bottom:16px">
+    <h2 class="sec-title">Стоимость и <em>регистрация</em></h2>
+    <div class="price-card">
+      <div class="price-num">14 800 <span>руб.</span></div>
+      <div class="price-sub">Оплата в три этапа — удобно и без стресса</div>
+      <div class="stages">
+        <div class="stage">
+          <div class="stage-sum">2 500 ₽</div>
+          <div class="stage-lbl">до 30 марта</div>
+        </div>
+        <div class="stage">
+          <div class="stage-sum">2 500 ₽</div>
+          <div class="stage-lbl">до 30 апреля</div>
+        </div>
+        <div class="stage">
+          <div class="stage-sum">9 800 ₽</div>
+          <div class="stage-lbl">на тренинге наличными</div>
+        </div>
+      </div>
+      <div class="price-note">* Адрес перевода отправим каждому в личку после заявки</div>
+      <a class="reg-btn" href="https://t.me/+JjHls3I3EcYyMGIy" target="_blank">ЗАПИСАТЬСЯ</a>
+      <div class="reg-code">Напиши в чат команды MAXIMUM: <b>«СЕМИНАР 2026»</b></div>
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<!-- ═══════════ ПОДВАЛ ═══════════ -->
+<footer>
+  <div class="foot-logo">MAX<em>I</em>MUM</div>
+  <p>Ярославль · 9–11 июля 2026</p>
+  <p style="margin-top:10px">
+    <a href="https://t.me/+JjHls3I3EcYyMGIy" target="_blank">Чат семинара → пиши «СЕМИНАР 2026»</a>
+  </p>
+</footer>
+
+<script>
+// ─── АККОРДЕОН ПРОГРАММЫ ─────────────────────────
+function toggleProg(id) {
+  const body = document.getElementById('prog-' + id);
+  const btn = body.previousElementSibling;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.prog-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.prog-btn').forEach(b => b.classList.remove('open'));
+  if (!isOpen) {
+    body.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+
+// ─── СЛАЙД "КОМУ" ─────────────────────────────────
+const whoObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.who-item').forEach(item => {
+        const d = parseInt(item.dataset.delay) || 0;
+        setTimeout(() => item.classList.add('slide-in'), d);
+      });
+      whoObs.disconnect();
+    }
+  });
+}, { threshold: 0.2 });
+const whoGrid = document.getElementById('who-grid');
+if (whoGrid) whoObs.observe(whoGrid);
+</script>
+</body>
+</html>
